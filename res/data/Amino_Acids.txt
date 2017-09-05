@@ -1,0 +1,22 @@
+0		Alanine	Ala	A	proteinogenic	normal coding	aliphatic	nonpolar	neutral	1.8			89.094	8.76
+1		Arginine	Arg	R	proteinogenic	normal coding	basic	basic polar	positive	−4.5			174.203	5.78
+2		Asparagine	Asn	N	proteinogenic	normal coding	amide	polar	neutral	−3.5			132.119	3.93
+3		Aspartic acid	Asp	D	proteinogenic	normal coding	acid	acidic polar	negative	−3.5			133.104	5.49
+4		Cysteine	Cys	C	proteinogenic	normal coding	sulfur-containing	nonpolar	neutral	2.5	250	0.3	121.154	1.38
+5		Glutamic acid	Glu	E	proteinogenic	normal coding	acid	acidic polar	negative	−3.5			147.131	6.32
+6		Glutamine	Gln	Q	proteinogenic	normal coding	amide	polar	neutral	−3.5			146.146	3.9
+7		Glycine	Gly	G	proteinogenic	normal coding	aliphatic	nonpolar	neutral	−0.4			75.067	7.03
+8		Histidine	His	H	proteinogenic	normal coding	basic aromatic	basic polar	positive(10%), neutral(90%)	−3.2	211	5.9	155.156	2.26
+9		Isoleucine	Ile	I	proteinogenic	normal coding	aliphatic	nonpolar	neutral	4.5			131.175	5.49
+10		Leucine	Leu	L	proteinogenic	normal coding	aliphatic	nonpolar	neutral	3.8			131.175	9.68
+11		Lysine	Lys	K	proteinogenic	normal coding	basic	basic polar	positive	−3.9			146.189	5.19
+12		Methionine	Met	M	proteinogenic	normal coding	sulfur-containing	nonpolar	neutral	1.9			149.208	2.32
+13		Phenylalanine	Phe	F	proteinogenic	normal coding	aromatic	nonpolar	neutral	2.8	257, 206, 188	0.2, 9.3, 60.0	165.192	3.87
+14		Proline	Pro	P	proteinogenic	normal coding	cyclic	nonpolar	neutral	−1.6			115.132	5.02
+15		Serine	Ser	S	proteinogenic	normal coding	hydroxyl-containing	polar	neutral	−0.8			105.093	7.14
+16		Threonine	Thr	T	proteinogenic	normal coding	hydroxyl-containing	polar	neutral	−0.7			119.119	5.53
+17		Tryptophan	Trp	W	proteinogenic	normal coding	aromatic	nonpolar	neutral	−0.9	280, 219	5.6, 47.0	204.228	1.25
+18		Tyrosine	Tyr	Y	proteinogenic	normal coding	aromatic	polar	neutral	−1.3	274, 222, 193	1.4, 8.0, 48.0	181.191	2.91
+19		Valine	Val	V	proteinogenic	normal coding	aliphatic	nonpolar	neutral	4.2			117.148	6.73
+20	21	Selenocysteine	Sec	U	proteinogenic	translational recoding							168.064	
+21	22	Pyrrolysine	Pyl 	O	proteinogenic	translational recoding							255.313	
