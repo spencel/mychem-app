@@ -3,6 +3,13 @@ import React, { Component } from 'react';
 
 class AminoAcidTable extends Component {
 
+	// Class (Static) Properties
+	static data = {
+		Arginine: {
+			name: "Arginine",
+		},
+	};
+
 	render() {
 		return (
 			<div className="AminoAcidsTable">
@@ -18,7 +25,7 @@ class AminoAcidTable extends Component {
 						<tr>
 							<th rowSpan="9">Polar</th>
 							<th rowSpan="3">Positive<br/>Charged</th>
-							<td>Arginine</td>
+							<td>{this.constructor.data.Arginine.name}</td>
 							<td>Arg</td>
 							<td>R</td>
 						</tr>
