@@ -121,11 +121,11 @@ class FlashcardApplet extends Component {
 				}
 				return strData;
 			},
-			success: function() {
+			success: function( echo ) {
 				console.log( "success" );
-			},
-			error: function( echo ) {
 				console.log( echo );
+			},
+			error: function() {
 				console.log( "error" );
 			},
 			complete: function() {
