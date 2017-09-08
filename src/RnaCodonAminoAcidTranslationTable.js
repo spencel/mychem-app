@@ -7,10 +7,10 @@ class RnaCodonAminoAcidTranslationTable extends Component {
 		return (
 			<div className="RnaCodonAminoAcidTranslationTable">
 				<table>
-					<caption>RNA Codon to Aminco Acid Translations</caption>
+					<caption>RNA Codon to Amino Acid Translations</caption>
 					<tbody>
 						<tr>
-							<th colSpan="10">Symol</th>
+							<th colSpan="10">Symbol</th>
 						</tr>
 						<tr>
 							<th>1st</th>

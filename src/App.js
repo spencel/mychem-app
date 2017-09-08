@@ -7,18 +7,11 @@ import {Flashcard, FlashcardApplet, FlashcardDeck} from './FlashcardApplet';
 
 class App extends Component {
 
-  static main() {
-    var myDeck = new FlashcardDeck();
-    myDeck.add( new Flashcard( "question1", "answer1" ) );
-    myDeck.add( new Flashcard( "question2", "answer2" ) );
-    myDeck.add( new Flashcard( "question3", "answer3" ) );
-    myDeck.shuffle();
-    console.log( myDeck );
-  }
-
   render() {
     return (
-      <div className="App" onLoad={App.main()}>
+      <div className="App">
+        <FlashcardApplet/>
+        <br/>
         <NucleicAcidsTable/>
         <br/>
         <AminoAcidTable/>

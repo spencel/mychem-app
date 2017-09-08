@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 //import './FlashcardApplet.css';
 
+var flashcards = [
+	["angiogenesis", "the physiological process through which new blood vessels form from pre-existing vessels."],
+	["metastasis", "the development of secondary malignant growths at a distance from a primary site of cancer."],
+]
+
 class FlashcardDeck {
 
 	static idCounter = -1;
@@ -48,14 +53,57 @@ class Flashcard {
 		this.back = back;
 	}
 
+	static addNew( front, back ) {
+
+	}
+
 }
 
 class FlashcardApplet extends Component {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			front: "",
+			back: ""
+		}
+		this.handleFrontChange = this.handleFrontChange.bind(this);
+		this.handleBackChange = this.handleBackChange.bind(this);
+  	this.handleSubmit = this.handleSubmit.bind(this);
+	}
+	
+	handleSubmit( event ) {
+		console.log( this.state.front );
+		console.log( this.state.back );
+		event.preventDefault();
+	}
+	handleFrontChange( event ) {
+		this.setState({ front: event.target.value });
+	}
+	handleBackChange( event ) {
+		this.setState({ back: event.target.value });
+	}
+
 	render() {
 		return (
-			<div></div>
+			<div className="FlashcardApplet" onLoad={this.main}>
+				<h1>Flashcard App</h1>
+				<form onSubmit={this.handleSubmit}>
+					<div><label>New Card</label></div>
+					<div><label>Front:<input type="text" value={this.state.front} onChange={this.handleFrontChange}/></label></div>
+					<div><label>Back:<input type="text" value={this.state.back} onChange={this.handleBackChange}/></label></div>
+					<div><input type="submit" value="Add"/></div>
+				</form>
+			</div>
 		);
+	}
+
+
+
+	main() {
+		var newFlashcardsDeck = new FlashcardDeck();
+		var retryFlashcardsDeck = new FlashcardDeck();
+		var reviewFlashcardsDeck = new FlashcardDeck();
 	}
 
 }
