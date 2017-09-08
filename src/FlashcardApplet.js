@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import * as jQuery from 'jquery';
 //import './FlashcardApplet.css';
+
+window.jQuery = jQuery;//
 
 var flashcards = [
 	["angiogenesis", "the physiological process through which new blood vessels form from pre-existing vessels."],
@@ -53,13 +56,13 @@ class Flashcard {
 		this.back = back;
 	}
 
-	static addNew( front, back ) {
-
-	}
-
 }
 
 class FlashcardApplet extends Component {
+
+	static newFlashcardsDeck = new FlashcardDeck();
+	static retryFlashcardsDeck = new FlashcardDeck();
+	static reviewFlashcardsDeck = new FlashcardDeck();
 
 	constructor(props) {
 		super(props);
@@ -69,12 +72,16 @@ class FlashcardApplet extends Component {
 		}
 		this.handleFrontChange = this.handleFrontChange.bind(this);
 		this.handleBackChange = this.handleBackChange.bind(this);
-  	this.handleSubmit = this.handleSubmit.bind(this);
+  		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	
 	handleSubmit( event ) {
-		console.log( this.state.front );
-		console.log( this.state.back );
+		this.constructor.newFlashcardsDeck.add( new Flashcard( this.state.front, this.state.back ) );
+		this.setState({
+			front: "",
+			back: ""
+		});
+		console.log( this.constructor.newFlashcardsDeck.arFlashCards );
 		event.preventDefault();
 	}
 	handleFrontChange( event ) {
@@ -82,6 +89,49 @@ class FlashcardApplet extends Component {
 	}
 	handleBackChange( event ) {
 		this.setState({ back: event.target.value });
+	}
+	handleSaveProgress() {
+		jQuery.ajax({
+			type: "POST",
+			url: "../php/newFlashcard.php",
+			dataType: "string",
+			data: function() {
+				var strData = "";
+				for ( var id in Flashcard.byId ) {
+			    if ( Flashcard.byId.hasOwnProperty( id )) {
+			        strData += id + "\t" + Flashcard.byId[ id ].front + "\t" + Flashcard.byId[ id ].back + "\n";
+			    }
+				}
+				return strData;
+			},
+			success: function( echo ) {
+				console.log( "success" );
+				console.log( echo );
+			}
+		});
+		jQuery.ajax({
+			type: "POST",
+			url: "../php/newFlashcard.php",
+			data: function() {
+				var strData = "";
+				for ( var id in Flashcard.byId ) {
+			    if ( Flashcard.byId.hasOwnProperty( id )) {
+			        strData += id + "\t" + Flashcard.byId[ id ].front + "\t" + Flashcard.byId[ id ].back + "\n";
+			    }
+				}
+				return strData;
+			},
+			success: function() {
+				console.log( "success" );
+			},
+			error: function( echo ) {
+				console.log( echo );
+				console.log( "error" );
+			},
+			complete: function() {
+				console.log( "complete" );
+			}			
+		});
 	}
 
 	render() {
@@ -94,6 +144,8 @@ class FlashcardApplet extends Component {
 					<div><label>Back:<input type="text" value={this.state.back} onChange={this.handleBackChange}/></label></div>
 					<div><input type="submit" value="Add"/></div>
 				</form>
+				<div><input type="button" value="Save Progress" onClick={this.handleSaveProgress}/></div>
+
 			</div>
 		);
 	}
@@ -101,9 +153,7 @@ class FlashcardApplet extends Component {
 
 
 	main() {
-		var newFlashcardsDeck = new FlashcardDeck();
-		var retryFlashcardsDeck = new FlashcardDeck();
-		var reviewFlashcardsDeck = new FlashcardDeck();
+		
 	}
 
 }
