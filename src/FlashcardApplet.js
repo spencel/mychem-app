@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Globals from './Globals';
 import * as jQuery from 'jquery';
 //import './FlashcardApplet.css';
 
@@ -48,12 +49,16 @@ class Flashcard {
 	static idCounter = -1;
 	static byId = {};
 
-	constructor( front, back ) {
+	constructor( front, back, reviewDate, interval, reviewDateOtherside, intervalOtherside, ) {
 		this.id = ++this.constructor.idCounter;
 		this.constructor.byId[this.id] = this;
 
 		this.front = front;
 		this.back = back;
+		this.reviewDate = reviewDate;
+		this.interval = interval;
+		this.reviewDateOtherside = reviewDateOtherside;
+		this.intervalOtherside = intervalOtherside;
 	}
 
 }
@@ -76,12 +81,20 @@ class FlashcardApplet extends Component {
 	}
 	
 	handleSubmit( event ) {
-		this.constructor.newFlashcardsDeck.add( new Flashcard( this.state.front, this.state.back ) );
+		var today = new Date();
+		this.constructor.newFlashcardsDeck.add( new Flashcard( 
+			this.state.front,
+			this.state.back,
+			today,
+			0,
+			today,
+			0
+		));
+		this.saveToDatabase();
 		this.setState({
 			front: "",
 			back: ""
 		});
-		console.log( this.constructor.newFlashcardsDeck.arFlashCards );
 		event.preventDefault();
 	}
 	handleFrontChange( event ) {
@@ -90,40 +103,27 @@ class FlashcardApplet extends Component {
 	handleBackChange( event ) {
 		this.setState({ back: event.target.value });
 	}
-	handleSaveProgress() {
+	saveToDatabase() {
+		var strData = "";
+		for ( var id in Flashcard.byId ) {
+		    if ( Flashcard.byId.hasOwnProperty( id ) ) {
+		    	var flashcard = Flashcard.byId[ id ];
+		        strData += id
+		        + "\t" + flashcard.front
+		        + "\t" + flashcard.back
+		        + "\t" + flashcard.reviewDate
+		        + "\t" + flashcard.interval
+		        + "\t" + flashcard.reviewDateOtherside
+		        + "\t" + flashcard.intervalOtherside + "\n";
+		    }
+		}
 		jQuery.ajax({
-			type: "POST",
-			url: "../php/newFlashcard.php",
-			dataType: "string",
-			data: function() {
-				var strData = "";
-				for ( var id in Flashcard.byId ) {
-			    if ( Flashcard.byId.hasOwnProperty( id )) {
-			        strData += id + "\t" + Flashcard.byId[ id ].front + "\t" + Flashcard.byId[ id ].back + "\n";
-			    }
-				}
-				return strData;
-			},
-			success: function( echo ) {
+			method: "POST",
+			url: Globals.phpDir + "/FlashcardApplet/saveToDatabase.php",
+			data: { strData: strData },
+			dataType: "text",
+			success: function() {
 				console.log( "success" );
-				console.log( echo );
-			}
-		});
-		jQuery.ajax({
-			type: "POST",
-			url: "../php/newFlashcard.php",
-			data: function() {
-				var strData = "";
-				for ( var id in Flashcard.byId ) {
-			    if ( Flashcard.byId.hasOwnProperty( id )) {
-			        strData += id + "\t" + Flashcard.byId[ id ].front + "\t" + Flashcard.byId[ id ].back + "\n";
-			    }
-				}
-				return strData;
-			},
-			success: function( echo ) {
-				console.log( "success" );
-				console.log( echo );
 			},
 			error: function() {
 				console.log( "error" );
@@ -144,8 +144,6 @@ class FlashcardApplet extends Component {
 					<div><label>Back:<input type="text" value={this.state.back} onChange={this.handleBackChange}/></label></div>
 					<div><input type="submit" value="Add"/></div>
 				</form>
-				<div><input type="button" value="Save Progress" onClick={this.handleSaveProgress}/></div>
-
 			</div>
 		);
 	}
