@@ -1,0 +1,2 @@
+If it's not working then make sure the following statement is in conext.js instead of the default:
+const DEFAULT_SCRIPT = "sl-sandbox.dreamhosters.com/MathJax/MathJax.js";
