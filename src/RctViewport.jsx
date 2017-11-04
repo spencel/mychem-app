@@ -5,7 +5,7 @@ class RctViewport extends React.Component {
 	// defaultProps can be defined as a property on the component class itself, to set the default props for the class. This is used for undefined props, but not for null props.
 	static defaultProps = {
 		id: undefined,
-		rctContents: "Empty viewport"
+		rctContents: ""
 	}
 	constructor( props ) {
 		super( props );
@@ -35,6 +35,7 @@ class RctViewport extends React.Component {
 	*/
 	componentWillReceiveProps( newProps ) {
 		console.log( "RctViewport.componentWillReceiveProps()" );
+		console.log( newProps )
 		this.setState({ rctContents: newProps.rctContents })
 	}
 	// Use shouldComponentUpdate() to let React know if a component’s output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.

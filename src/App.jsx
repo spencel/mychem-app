@@ -1,16 +1,22 @@
-import React from 'react';
-import RctMenu from './RctMenu.jsx';
-import RctViewport from './RctViewport.jsx';
+import React from "react";
+import RctMenu from "./RctMenu.jsx";
+import RctViewport from "./RctViewport.jsx";
+import RctPoissonDistribution from "./RctPoissonDistribution.jsx";
+import RctGibbsEnergy from "./RctGibbsEnergy.jsx"
 
 class App extends React.Component {
+	static views = {
+		RctGibbsEnergy: <RctGibbsEnergy/>,
+		RctPoissonDistribution: <RctPoissonDistribution/>
+	}
 	constructor() {
 		super();
 		this.state = {
-			viewportContents: "Empty viewport"
+			viewportContents: <RctGibbsEnergy/>
 		};
 		//this.handleMenuInput = this.handleMenuInput.bind( this )
 	}
-	handleMenuInput = () => {
+	handleMenuInput = ( input ) => {
 		console.log( "App.handleMenuInput()" );
 		/* To update RctViewport, RctViewport requires thise code inside of it:
 		componentWillReceiveProps( newProps ) {
@@ -18,16 +24,22 @@ class App extends React.Component {
 			this.setState({ rctContents: newProps.rctContents })
 		}
 		*/
-		this.setState(( prevState, props ) => {
-			return { viewportContents: "Content!" }
-		});
+		if ( input.startsWith( "view" ) ) {
+			this.setState(( prevState, props ) => {
+				var rctClassName = input.slice( 4 );
+				return { viewportContents: App.views[ rctClassName ] };
+			});
+		} else {
+
+		}
+		
 		console.log( this.state.viewportContents );
 	}
   render() {
     return (
       <div className="App">
-      	<RctMenu id={ 0 } rctOnInput={ this.handleMenuInput }/>
-      	<RctViewport id={ 0 } rctContents={ this.state.viewportContents }/>
+      	<RctMenu rctOnInput={ this.handleMenuInput }/>
+      	<RctViewport rctContents={ this.state.viewportContents }/>
       </div>
     );
   }
