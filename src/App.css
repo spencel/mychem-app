@@ -75,17 +75,24 @@ div.RctHeader div.button:hover {
 }
 
 div.RctMenu {
-  position: fixed;
+  position: absolute;
+  display: inline-block;
   right: 0px;
   top: 20px;
+  bottom: 0;
   z-index: 1;
   background-color: hsl(0, 0%, 98%);
 }
 
 div.RctMenu ul {
-  margin:0px;
-  padding: 0px;
+  position: fixed;
+  margin:0px; /* overrides default */
+  padding: 0px; /* overrides default */
+  right: 0;
+  top: 20px;
+  bottom:0;
   list-style: none;
+  overflow-y: auto; /* scrollbar hides if not needed */
 }
 
 div.RctMenu li {
@@ -111,5 +118,7 @@ div.RctGibbsEnergy {
   word-wrap: break-word;
 }
 span.mjx-chtml.MJXc-display {
+  margin-top: 2px;    /* overrides ~15px default */
+  margin-bottom: 2px; /* overrides ~15px default */
   display: inline-block;
 }
