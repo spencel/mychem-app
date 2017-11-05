@@ -1,32 +1,28 @@
 import React from "react";
-import RctHeader from "./RctHeader.jsx";
-import RctMenu from "./RctMenu.jsx";
-import RctViewport from "./RctViewport.jsx";
-import RctPoissonDistribution from "./RctPoissonDistribution.jsx";
-import RctGibbsEnergy from "./RctGibbsEnergy.jsx";
-import RctAminoAcidTable from "./RctAminoAcidTable.jsx";
-import RctCellComponents from "./RctCellComponents.jsx";
-import RctNucleicAcidsTable from "./RctNucleicAcidsTable.jsx";
-import RctUnicellularTrophism from "./RctUnicellularTrophism.jsx";
-import RctRnaCodonTable from "./RctRnaCodonTable.jsx";
+import * as RctUserInterface from "./user-interface/RctUserInterface.jsx";
+import * as RctFormula from "./formula/RctFormula.jsx";
+import * as RctBiology from "./biology/RctBiology.jsx";
 
 import styles from './App.css';
 
 class App extends React.Component {
 	static views = {
-		RctGibbsEnergy: <RctGibbsEnergy/>,
-		RctPoissonDistribution: <RctPoissonDistribution/>,
-		RctAminoAcidTable: <RctAminoAcidTable/>,
-		RctCellComponents: <RctCellComponents/>,
-		RctNucleicAcidsTable: <RctNucleicAcidsTable/>,
-		RctUnicellularTrophism: <RctUnicellularTrophism/>,
-		RctRnaCodonTable: <RctRnaCodonTable/>
+		RctGibbsEnergy: <RctFormula.RctGibbsEnergy/>,
+        RctMicrobeCmfr: <RctFormula.RctMicrobeCmfr/>,
+        RctMonodEquation: <RctFormula.RctMonodEquation/>,
+        RctProbabilityMassFunction: <RctFormula.RctProbabilityMassFunction/>,
+		RctPoissonDistribution: <RctFormula.RctPoissonDistribution/>,
+		RctAminoAcidTable: <RctBiology.RctAminoAcidTable/>,
+		RctCellComponents: <RctBiology.RctCellComponents/>,
+		RctNucleicAcidsTable: <RctBiology.RctNucleicAcidsTable/>,
+		RctUnicellularTrophism: <RctBiology.RctUnicellularTrophism/>,
+		RctRnaCodonTable: <RctBiology.RctRnaCodonTable/>
 	}
 	constructor() {
 		super();
 		this.state = {
 			menuVisible: false, 
-			viewportContents: <RctGibbsEnergy/>
+			viewportContents: App.views.RctMicrobeCmfr
 		};
 		//this.handleMenuInput = this.handleMenuInput.bind( this )
 	}
@@ -68,13 +64,34 @@ class App extends React.Component {
     				"type": "LOADVIEW",
     				"args": "RctGibbsEnergy"
     			}
+            },{
+                "type": "BUTTON", 
+                "caption": "Microbe CMFR",
+                "action": {
+                    "type": "LOADVIEW",
+                    "args": "RctMicrobeCmfr"
+                }
     		},{
+                "type": "BUTTON", 
+                "caption": "Monod equation",
+                "action": {
+                    "type": "LOADVIEW",
+                    "args": "RctMonodEquation"
+                }
+            },{
     			"type": "BUTTON", 
     			"caption": "Poisson distribution",
     			"action": {
     				"type": "LOADVIEW",
     				"args": "RctPoissonDistribution"
     			}
+            },{
+                "type": "BUTTON", 
+                "caption": "Probability mass function",
+                "action": {
+                    "type": "LOADVIEW",
+                    "args": "RctProbabilityMassFunction"
+                }
     		},{
     			"type": "BUTTON", 
     			"caption": "Amino acid table",
@@ -110,17 +127,17 @@ class App extends React.Component {
     				"type": "LOADVIEW",
     				"args": "RctRnaCodonTable"
     			}
-    		}
+            }
     	]
     return (
       <div className="App">
-      	<RctHeader rctOnInput={ this.handleHeaderInput }/>
-      	<RctMenu
+      	<RctUserInterface.RctHeader rctOnInput={ this.handleHeaderInput }/>
+      	<RctUserInterface.RctMenu
       		rctVisible={ this.state.menuVisible }
       		rctStructure={ menuStructure }
       		rctOnInput={ this.handleMenuInput }
       	/>
-      	<RctViewport rctContents={ this.state.viewportContents }/>
+      	<RctUserInterface.RctViewport rctContents={ this.state.viewportContents }/>
       </div>
     );
   }

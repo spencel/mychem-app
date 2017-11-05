@@ -118,7 +118,7 @@ div.RctGibbsEnergy {
   word-wrap: break-word;
 }
 span.mjx-chtml.MJXc-display {
-  margin-top: 2px;    /* overrides ~15px default */
-  margin-bottom: 2px; /* overrides ~15px default */
+  margin-top: 6px;    /* overrides ~15px default */
+  margin-bottom: 6px; /* overrides ~15px default */
   display: inline-block;
 }
