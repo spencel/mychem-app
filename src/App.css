@@ -75,7 +75,7 @@ div.RctHeader div.button:hover {
 }
 
 div.RctMenu {
-  position: absolute;
+  position: fixed;
   right: 0px;
   top: 20px;
   z-index: 1;
@@ -101,6 +101,15 @@ div.RctMenu li:hover {
 div.RctViewport {
   position: absolute;
   top: 20px;
+  width: 100%;
   z-index: 0;
+  word-wrap: break-word;
   background-color: hsl(0, 0%, 98%);
+}
+
+div.RctGibbsEnergy {
+  word-wrap: break-word;
+}
+span.mjx-chtml.MJXc-display {
+  display: inline-block;
 }
