@@ -1,18 +1,9 @@
-import React, { Component } from 'react';
-//import './AminoAcidTable.css';
+import React from "react";
 
-class AminoAcidTable extends Component {
-
-	// Class (Static) Properties
-	static data = {
-		Arginine: {
-			name: "Arginine",
-		},
-	};
-
+class RctAminoAcidTable extends React.PureComponent {
 	render() {
 		return (
-			<div className="AminoAcidsTable">
+			<div className="RctAminoAcidTable">
 				<table>
 					<caption>Amino Acids</caption>
 					<tbody>
@@ -25,7 +16,7 @@ class AminoAcidTable extends Component {
 						<tr>
 							<th rowSpan="9">Polar</th>
 							<th rowSpan="3">Positive<br/>Charged</th>
-							<td>{this.constructor.data.Arginine.name}</td>
+							<td>Arginine</td>
 							<td>Arg</td>
 							<td>R</td>
 						</tr>
@@ -138,7 +129,6 @@ class AminoAcidTable extends Component {
 			</div>
 		);
 	}
-
 }
 
-export default AminoAcidTable;
+export default RctAminoAcidTable;

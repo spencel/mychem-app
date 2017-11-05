@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-//import './AminoAcidTable.css';
+import React from 'react';
 
-class RnaCodonAminoAcidTranslationTable extends Component {
-
+class RctRnaCodonAminoAcidTranslationTable extends React.Component {
 	render() {
 		return (
 			<div className="RnaCodonAminoAcidTranslationTable">
@@ -170,7 +168,6 @@ class RnaCodonAminoAcidTranslationTable extends Component {
 			</div>
 		);
 	}
-
 }
 
-export default RnaCodonAminoAcidTranslationTable;
+export default RctRnaCodonAminoAcidTranslationTable;

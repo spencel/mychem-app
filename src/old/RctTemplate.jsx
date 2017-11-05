@@ -29,36 +29,36 @@ class RctTemplate extends React.Component {
 	componentDidMount() { }
 
 	onButtonClick( event ) {
-		event.preventDefault();
+			event.preventDefault();
 
-		console.log( event );
+			console.log( event );
 
-		alert( "Button with id \"" + event.target.id + "\" was clicked! Check the log for event details!")
+			alert( "Button with id \"" + event.target.id + "\" was clicked! Check the log for event details!")
 
-		
-    
-  }
+			
+	    
+	  }
 
-	render() {
+		render() {
 
-		return (
-				<div className="RctTemplate">
-					<div>
-						<h4>My Menu</h4>
-						<ul>
-							{Object.keys( this.state.myMenu ).map( key =>
-								<li id={key} key={key} className="button"
-									onClick={( event ) => this.onButtonClick( event )} >{key}
-								</li>
-							)}
-						</ul>
+			return (
+					<div className="RctTemplate">
+						<div>
+							<h4>My Menu</h4>
+							<ul>
+								{Object.keys( this.state.myMenu ).map( key =>
+									<li id={key} key={key} className="button"
+										onClick={( event ) => this.onButtonClick( event )} >{key}
+									</li>
+								)}
+							</ul>
+						</div>
 					</div>
-				</div>
-		);
+			);
+
+		}
 
 	}
-
-}
 
 
 

@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-//import './ComUnicellularTrophism.css';
+import React from 'react';
 
-class ComCellComponents extends Component {
-
+class RctCellComponents extends React.Component {
 	render() {
 		return (
-			<div className="ComCellComponents">
+			<div className="RctCellComponents">
 				<h4>Cell Components</h4>
 				<ul>
 					<li>All lineages typically have</li>
@@ -88,7 +86,6 @@ class ComCellComponents extends Component {
 			</div>
 		);
 	}
-
 }
 
-export default ComCellComponents;
+export default RctCellComponents;

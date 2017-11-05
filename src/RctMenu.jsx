@@ -5,25 +5,45 @@ class RctMenu extends React.Component {
 	// defaultProps can be defined as a property on the component class itself, to set the default props for the class. This is used for undefined props, but not for null props.
 	constructor( props ) {
 		super( props );
-		this.state = {
-			// props can have a state mutable state counterpart, thereby props act as an initial or default values for state values
-			rctCaption: props.rctCaption
-		};
-		//this.handleButtonInput = this.handleButtonInput.bind( this );
 	}
-	handleButtonInput = ( view ) => {
-		console.log( "RctMenu.handleButtonInput()")
-		this.props.rctOnInput( view );
+	componentWillReceiveProps( newProps ) {
+		console.log( "RctMenu.componentWillReceiveProps()" );
+		console.log( newProps )
+		this.setState({ visible: newProps.rctVisible })
+	}
+	handleButtonInput = ( action ) => {
+		this.props.rctOnInput( action );
+	}
+	generateMenu( structure ) {
+		var menu = [];
+		for ( var i = 0; i < structure.length; i++ ) {
+			if ( structure[ i ].type === "BUTTON" ) {
+				menu.push( <RctButton
+					key={ i }
+					rctCaption={ structure[ i ].caption }
+					rctOnInput={ this.handleButtonInput.bind( this, structure[ i ].action ) }
+				/> );
+			}
+		}
+		return menu;
 	}
   render() {
-    return (
-      <div className="RctMenu">
-      	<RctButton rctCaption="Gibbs Energy" rctOnInput={ this.handleButtonInput.bind( this, "viewRctGibbsEnergy" ) }/>
-      	<RctButton rctCaption="Poisson Distribution" rctOnInput={ this.handleButtonInput.bind( this, "viewRctPoissonDistribution" ) }/>
-      </div>
-    );
+  	console.log( "RctMenu.render()" );
+  	if ( this.props.rctVisible === true ) {
+  		return (
+	      <div className="RctMenu">
+	      	<ul>
+	      		{ this.generateMenu( this.props.rctStructure ) }
+	      	</ul>
+	      </div>
+	    );
+  	} else /*( this.state.visible === false )*/ {
+  		return (
+	      <div className="RctMenu">
+	      </div>
+	    );
+  	}
   }
-
 }
 
 export default RctMenu;

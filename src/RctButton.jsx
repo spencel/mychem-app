@@ -4,14 +4,11 @@ class RctButton extends React.Component {
 	constructor( props ) {
 		super( props );
 	}
-	handleOnClick = () => {
-		this.props.rctOnInput();
-	}
 	render() {
     return (
-      <div className="RctButton" onClick={ this.handleOnClick.bind( this ) }>
+     	<li className="RctButton" onClick={ this.props.rctOnInput.bind( this ) }>
       	{this.props.rctCaption}
-      </div>
+      </li>
     );
   }
 }

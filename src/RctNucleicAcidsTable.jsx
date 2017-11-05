@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-//import './NucleicAcidsTable.css';
+import React from 'react';
 
-class NucleicAcidsTable extends Component {
-
+class RctNucleicAcidsTable extends React.Component {
 	render() {
 		return (
-			<div className="NucleicAcidsTable">
+			<div className="RctNucleicAcidsTable">
 				<table>
 					<caption>Nucleic Acids</caption>
 					<tbody>
@@ -115,7 +113,6 @@ class NucleicAcidsTable extends Component {
 			</div>
 		);
 	}
-
 }
 
-export default NucleicAcidsTable;
+export default RctNucleicAcidsTable;

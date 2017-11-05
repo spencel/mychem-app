@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-//import './ComUnicellularTrophism.css';
+import React from "react";
 
-class ComUnicellularTrophism extends Component {
-
+class RctUnicellularTrophism extends React.Component {
 	render() {
 		return (
-			<div className="ComUnicellularTrophism">
+			<div className="RctUnicellularTrophism">
 				<h4>Energy Conservation from Catabolism</h4>
 				<ul>
 					<li>chemotroph: from chemicals</li>
@@ -30,4 +28,4 @@ class ComUnicellularTrophism extends Component {
 
 }
 
-export default ComUnicellularTrophism;
+export default RctUnicellularTrophism;

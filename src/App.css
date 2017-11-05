@@ -25,6 +25,7 @@
 
 body {
   color:  hsl(0, 0%, 10%);
+  background-color: hsl(0, 0%, 98%);
 }
 
 table {
@@ -46,4 +47,60 @@ td {
 
 td.empty {
   background-color: hsl(0, 0%, 80%);
+}
+
+div.RctHeader {
+  position: fixed;
+  display: block;
+  top: 0px;
+  width: 100%;
+  height: 20px;
+  z-index: 1;
+  text-align: right;
+  background-color: hsl(0, 0%, 98%);
+}
+
+div.RctHeader div.button {
+  position: static;
+  display: inline-block;
+  border: 1px solid hsl(0, 0%, 98%);
+  width: 18px;
+  text-align: center;
+  background-color: hsl(0, 0%, 94%);
+}
+
+div.RctHeader div.button:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 98%);
+}
+
+div.RctMenu {
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  z-index: 1;
+  background-color: hsl(0, 0%, 98%);
+}
+
+div.RctMenu ul {
+  margin:0px;
+  padding: 0px;
+  list-style: none;
+}
+
+div.RctMenu li {
+  border: 1px solid hsl(0, 0%, 98%);
+  background-color: hsl(0, 0%, 94%);
+}
+
+div.RctMenu li:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 98%);
+}
+
+div.RctViewport {
+  position: absolute;
+  top: 20px;
+  z-index: 0;
+  background-color: hsl(0, 0%, 98%);
 }
