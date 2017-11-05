@@ -8,7 +8,7 @@
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.13",
     "react-mathjax": "0.1.1"
-  },
+  },// in the same directory as package.json: npm run "script-name"
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
