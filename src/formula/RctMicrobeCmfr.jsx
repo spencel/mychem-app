@@ -1,148 +1,57 @@
 import React from 'react';
 import * as MathJax from 'react-mathjax';
 
-class RctProbabilityMassFunction extends React.PureComponent {
+class RctMicrobeCmfr extends React.PureComponent {
+	constructor( props ) {
+		super( props );
+    this.state = {
+      arrJsx: RctMicrobeCmfr.buildJsx( props.rctData, [], 0 )
+    };
+	}
+  static buildJsx( data, arrJsx, level ) {
+    console.log( level );
+    for ( var i = 0; i < data.length; i++ ) {
+      if ( level === 0 ) {
+        arrJsx.push( <h1>{ data[ i ].title }</h1> );
+      } else if ( level === 1 ) {
+        arrJsx.push( <h2>{ data[ i ].title }</h2> );
+      } else if ( level === 2 ) {
+        arrJsx.push( <h3>{ data[ i ].title }</h3> );
+      } else if ( level === 3 ) {
+        arrJsx.push( <h4>{ data[ i ].title }</h4> );
+      } else {
+        arrJsx.push( <p>{ data[ i ].title }</p> );
+      }
+    for ( var j = 0; j < data[ i ].content.length; j++ ) {
+      console.log ( data[ i ].content[ j ] );
+      var line = [];
+      for ( var k = 0; k < data[ i ].content[ j ].length; k++ ) {
+        if ( data[ i ].content[ j ][ k ].startsWith( "{`" ) === true ) {
+          var strTex = data[ i ].content[ j ][ k ];
+          console.log( strTex );
+          strTex = strTex.substr( 2, strTex.length - 4 )
+          console.log( strTex );
+          line.push( <MathJax.Context><MathJax.Node>{ strTex }</MathJax.Node></MathJax.Context> )
+        } else {
+          line.push( <span>{ data[ i ].content[ j ][ k ] }</span> )
+        }
+      }
+      arrJsx.push( <div>{ line }</div> );
+    }
+      if ( data[ i ].subsections.length > 0 ) {
+        level++ 
+        this.buildJsx( data[ i ].subsections, arrJsx, level );
+      }
+    }
+    return arrJsx;
+  }
   render() {
     return (
-      <div className="RctProbabilityMassFunction">
-      	<h1>Microbe CMFR</h1>
-      	<h4>Flow</h4>
-      	<div>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ Q = Q_{ in } = Q_{ out } }`}
-						</MathJax.Node>
-					</MathJax.Context>
-				</div>
-				<div>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ Q = }`}
-						</MathJax.Node>
-					</MathJax.Context>
-					<span> flow</span>
-				</div>
-				<div>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ Q_{ in } = }`}
-						</MathJax.Node>
-					</MathJax.Context>
-					<span> flow into the reactor</span>
-				</div>
-				<div>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ Q_{ out } = }`}
-						</MathJax.Node>
-					</MathJax.Context>
-					<span> flow out of the reactor</span>
-				</div>
-				<h4>Microbial mass balance</h4>
-				<div>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ \\frac{dX}{dt}V = QX_0 - QX + r_{net}V }`}
-						</MathJax.Node>
-					</MathJax.Context>
-				</div>
-				<div>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ r_{net} = \\frac{ \\mu_{max}S_X }{ K_S + S } - bX }`}
-						</MathJax.Node>
-					</MathJax.Context>
-				</div>
-				<div>
-					<span>If stead-state, then: </span>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ \\frac{dX}{dt} = 0 }`}
-						</MathJax.Node>
-					</MathJax.Context>
-				</div>
-				<div>
-					<span>If </span>
-					<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ \\frac{dX}{dt} = 0 }`}
-						</MathJax.Node>
-					</MathJax.Context>
-					<span> and </span>
-					<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ X_0 }`}
-						</MathJax.Node>
-					</MathJax.Context>
-					<span> is negligible, then: </span>
-					<div>
-						<MathJax.Context>
-							<MathJax.Node>
-								{`\\rm{ r_{net} = \\frac{QX}{V} = \\frac{X}{\\theta} }`}
-							</MathJax.Node>
-						</MathJax.Context>
-					</div>
-				</div>
-				<div>
-					<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ \\frac{\\mu_{max}S}{k_g+S}-b = \\frac{r_{net}}{X} = \\frac{1}{\\theta} }`}
-						</MathJax.Node>
-					</MathJax.Context>
-				</div>
-				<h4>Substrate mass balance</h4>
-				<div>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ \\frac{dS}{dt}V = QS_0 - QS + r_{ut}V }`}
-						</MathJax.Node>
-					</MathJax.Context>
-				</div>
-				<div>
-					<span>If stead-state, then: </span>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ \\frac{dS}{dt} = 0 }`}
-						</MathJax.Node>
-					</MathJax.Context>
-				</div>
-				<div>
-					<span>If in exponential phase:</span>
-					<div>
-		      	<MathJax.Context>
-							<MathJax.Node>
-								{`\\rm{ r_{ut} = -\\frac{ \\mu_{max}SX }{ Y(K_S + S) } = -\\frac{1}{Y} \\frac{dX}{dt} }`}
-							</MathJax.Node>
-						</MathJax.Context>
-					</div>
-				</div>
-				<div>
-					<span>If not in exponential phase:</span>
-					<div>
-		      	<MathJax.Context>
-							<MathJax.Node>
-								{`\\rm{ r_{ut} = -\\frac{1}{Y} \\left( \\frac{ \\mu_{max}S }{ (K_S + S) } - b \\right) }`}
-							</MathJax.Node>
-						</MathJax.Context>
-					</div>
-				</div>
-				<div>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ QS = QS_0 - \\frac{\\mu_{max}SXV}{Y(K_S+S)} }`}
-						</MathJax.Node>
-					</MathJax.Context>
-				</div>
-				<div>
-	      	<MathJax.Context>
-						<MathJax.Node>
-							{`\\rm{ X = \\frac{Y(S_0 - S)}{1 + \\theta b} }`}
-						</MathJax.Node>
-					</MathJax.Context>
-				</div>
-      </div>
+      <div className="RctMicrobeCmfr">
+      	{ this.state.arrJsx }
+		  </div>
     );
   }
 }
 
-export default RctProbabilityMassFunction;
+export default RctMicrobeCmfr;

@@ -1,0 +1,42 @@
+[
+	{
+		"title": "Microbe CMFR",
+		"content": [],
+		"subsections": [
+			{
+				"title": "Flow",
+				"content": [
+					["{`\\rm{ Q = Q_{ in } = Q_{ out } }`}"],
+					["{`\\rm{ Q = }`}"," flow"],
+					["{`\\rm{ Q_{ in } = }`}"," flow into the reactor"],
+					["{`\\rm{ Q_{ out } = }`}"," flow out of the reactor"]
+				],
+				"subsections": []
+			},{
+				"title": "Microbial mass balance",
+				"content": [
+					["{`\\rm{ \\frac{dX}{dt}V = QX_0 - QX + r_{net}V }`}"],
+					["{`\\rm{ r_{net} = \\frac{ \\mu_{max}S_X }{ K_S + S } - bX }`}"],
+					["If stead-state, then: ","{`\\rm{ \\frac{dX}{dt} = 0 }`}"],
+					["If ","{`\\rm{ \\frac{dX}{dt} = 0 }`}"," and ","{`\\rm{ X_0 }`}"," is negligible, then:"],
+					["{`\\rm{ r_{net} = \\frac{QX}{V} = \\frac{X}{\\theta} }`}"],
+					["{`\\rm{ \\frac{\\mu_{max}S}{k_g+S}-b = \\frac{r_{net}}{X} = \\frac{1}{\\theta} }`}"]
+				],
+				"subsections": []
+			},{
+				"title": "Substrate mass balance",
+				"content": [
+					["{`\\rm{ \\frac{dS}{dt}V = QS_0 - QS + r_{ut}V }`}"],
+					["If stead-state, then: ","{`\\rm{ \\frac{dS}{dt} = 0 }`}"],
+					["If in exponential phase:"],
+					["{`\\rm{ r_{ut} = -\\frac{ \\mu_{max}SX }{ Y(K_S + S) } = -\\frac{1}{Y} \\frac{dX}{dt} }`}"],
+					["If not in exponential phase:"],
+					["{`\\rm{ r_{ut} = -\\frac{1}{Y} \\left( \\frac{ \\mu_{max}S }{ (K_S + S) } - b \\right) }`}"],
+					["{`\\rm{ QS = QS_0 - \\frac{\\mu_{max}SXV}{Y(K_S+S)} }`}"],
+					["{`\\rm{ X = \\frac{Y(S_0 - S)}{1 + \\theta b} }`}"]
+				],
+				"subsections": []
+			}
+		]
+	}
+]

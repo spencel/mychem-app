@@ -1,14 +1,19 @@
+// Library
 import React from "react";
 import * as RctUserInterface from "./user-interface/RctUserInterface.jsx";
 import * as RctFormula from "./formula/RctFormula.jsx";
 import * as RctBiology from "./biology/RctBiology.jsx";
 
-import styles from './App.css';
+// Styles
+import styles from "./App.css";
+
+// Data
+import data from "./formula/RctMicrobeCmfr.json";
 
 class App extends React.Component {
 	static views = {
 		RctGibbsEnergy: <RctFormula.RctGibbsEnergy/>,
-        RctMicrobeCmfr: <RctFormula.RctMicrobeCmfr/>,
+        RctMicrobeCmfr: <RctFormula.RctMicrobeCmfr rctData={ data }/>,
         RctMonodEquation: <RctFormula.RctMonodEquation/>,
         RctProbabilityMassFunction: <RctFormula.RctProbabilityMassFunction/>,
 		RctPoissonDistribution: <RctFormula.RctPoissonDistribution/>,

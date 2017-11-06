@@ -107,16 +107,22 @@ div.RctMenu li:hover {
 
 div.RctViewport {
   position: absolute;
+  display: block;
   top: 20px;
   width: 100%;
-  z-index: 0;
   word-wrap: break-word;
+  text-align: center;
   background-color: hsl(0, 0%, 98%);
 }
 
-div.RctGibbsEnergy {
-  word-wrap: break-word;
+div.RctViewport div.subViewport {
+  position: static;
+  display: inline-block;
+  z-index: 0;
+  text-align: left;
+  background-color: hsl(0, 0%, 98%);
 }
+
 span.mjx-chtml.MJXc-display {
   margin-top: 6px;    /* overrides ~15px default */
   margin-bottom: 6px; /* overrides ~15px default */
