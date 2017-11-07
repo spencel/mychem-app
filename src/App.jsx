@@ -1,33 +1,84 @@
 // Library
 import React from "react";
 import * as RctUserInterface from "./user-interface/RctUserInterface.jsx";
-import * as RctFormula from "./formula/RctFormula.jsx";
+import RctFormula from "./formula/RctFormula.jsx";
 import * as RctBiology from "./biology/RctBiology.jsx";
 
 // Styles
 import styles from "./App.css";
 
 // Data
-import data from "./formula/RctMicrobeCmfr.json";
+import RctFormulaJson from "./formula/RctFormula.json";
 
 class App extends React.Component {
-	static views = {
-		RctGibbsEnergy: <RctFormula.RctFormula2 rctData={data.RctGibbsEnergy.content}/>,
-    RctMicrobeCmfr: <RctFormula.RctFormula2 rctData={data.RctMicrobeCmfr.content}/>,
-    RctMonodEquation: <RctFormula.RctFormula2 rctData={data.RctMonodEquation.content}/>,
-    RctProbabilityMassFunction: <RctFormula.RctFormula2 rctData={data.RctProbabilityMassFunction.content}/>,
-		RctPoissonDistribution: <RctFormula.RctFormula2 rctData={data.RctPoissonDistribution.content}/>,
-		/*RctAminoAcidTable: <RctBiology.RctAminoAcidTable/>,
-		RctCellComponents: <RctBiology.RctCellComponents/>,
-		RctNucleicAcidsTable: <RctBiology.RctNucleicAcidsTable/>,
-		RctUnicellularTrophism: <RctBiology.RctUnicellularTrophism/>,
-		RctRnaCodonTable: <RctBiology.RctRnaCodonTable/>*/
-	}
+  static menuStructure = [];
+  static viewList = {};
+  static buildMenuAndViewList() {
+    App.menuStructure = [
+        {
+          "type": "BUTTON", 
+          "caption": "Amino acid table",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctAminoAcidTable"
+          }
+        },{
+          "type": "BUTTON", 
+          "caption": "Cell component list",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctCellComponents"
+          }
+        }       ,{
+          "type": "BUTTON", 
+          "caption": "Nucleic acid table",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctNucleicAcidsTable"
+          }
+        }       ,{
+          "type": "BUTTON", 
+          "caption": "Unicellular trophism table",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctUnicellularTrophism"
+          }
+        },{
+          "type": "BUTTON", 
+          "caption": "RNA codon table",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctRnaCodonTable"
+          }
+        }
+      ]
+    App.viewList = {
+      RctAminoAcidTable: <RctBiology.RctAminoAcidTable/>,
+      RctCellComponents: <RctBiology.RctCellComponents/>,
+      RctNucleicAcidsTable: <RctBiology.RctNucleicAcidsTable/>,
+      RctUnicellularTrophism: <RctBiology.RctUnicellularTrophism/>,
+      RctRnaCodonTable: <RctBiology.RctRnaCodonTable/>
+    }
+    for ( var key in RctFormulaJson ) {
+      if ( RctFormulaJson.hasOwnProperty( key ) ) {
+        App.menuStructure.push({
+        "type": "BUTTON",
+          "caption": RctFormulaJson[ key ].caption,
+          "action":{
+            "type": "LOADVIEW",
+            "args": key
+          }
+        });
+        App.viewList[ key ] = <RctFormula rctData={RctFormulaJson[ key ].content}/>;
+      }
+    }
+  }
 	constructor() {
 		super();
+    App.buildMenuAndViewList();
 		this.state = {
 			menuVisible: false, 
-			viewportContents: App.views.RctMicrobeCmfr
+			viewportContents: App.viewList.RctPoissonDistribution
 		};
 		//this.handleMenuInput = this.handleMenuInput.bind( this )
 	}
@@ -61,85 +112,13 @@ class App extends React.Component {
 		console.log( this.state.viewportContents );
 	}
   render() {
-  	const menuStructure = [
-    		{
-    			"type": "BUTTON", 
-    			"caption": "Gibbs energy",
-    			"action": {
-    				"type": "LOADVIEW",
-    				"args": "RctGibbsEnergy"
-    			}
-            },{
-                "type": "BUTTON", 
-                "caption": "Microbe CMFR",
-                "action": {
-                    "type": "LOADVIEW",
-                    "args": "RctMicrobeCmfr"
-                }
-    		},{
-                "type": "BUTTON", 
-                "caption": "Monod equation",
-                "action": {
-                    "type": "LOADVIEW",
-                    "args": "RctMonodEquation"
-                }
-            },{
-    			"type": "BUTTON", 
-    			"caption": "Poisson distribution",
-    			"action": {
-    				"type": "LOADVIEW",
-    				"args": "RctPoissonDistribution"
-    			}
-            },{
-                "type": "BUTTON", 
-                "caption": "Probability mass function",
-                "action": {
-                    "type": "LOADVIEW",
-                    "args": "RctProbabilityMassFunction"
-                }
-    		},{
-    			"type": "BUTTON", 
-    			"caption": "Amino acid table",
-    			"action": {
-    				"type": "LOADVIEW",
-    				"args": "RctAminoAcidTable"
-    			}
-    		},{
-    			"type": "BUTTON", 
-    			"caption": "Cell component list",
-    			"action": {
-    				"type": "LOADVIEW",
-    				"args": "RctCellComponents"
-    			}
-    		}    		,{
-    			"type": "BUTTON", 
-    			"caption": "Nucleic acid table",
-    			"action": {
-    				"type": "LOADVIEW",
-    				"args": "RctNucleicAcidsTable"
-    			}
-    		}    		,{
-    			"type": "BUTTON", 
-    			"caption": "Unicellular trophism table",
-    			"action": {
-    				"type": "LOADVIEW",
-    				"args": "RctUnicellularTrophism"
-    			}
-    		},{
-    			"type": "BUTTON", 
-    			"caption": "RNA codon table",
-    			"action": {
-    				"type": "LOADVIEW",
-    				"args": "RctRnaCodonTable"
-    			}
-            }
-    	]
+  
     return (
       <div className="App">
       	<RctUserInterface.RctHeader rctOnInput={ this.handleHeaderInput }/>
       	<RctUserInterface.RctMenu
       		rctVisible={ this.state.menuVisible }
-      		rctStructure={ menuStructure }
+      		rctStructure={ App.menuStructure }
       		rctOnInput={ this.handleMenuInput }
       	/>
       	<RctUserInterface.RctViewport rctContents={ this.state.viewportContents }/>
