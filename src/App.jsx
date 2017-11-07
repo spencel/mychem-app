@@ -12,16 +12,16 @@ import data from "./formula/RctMicrobeCmfr.json";
 
 class App extends React.Component {
 	static views = {
-		RctGibbsEnergy: <RctFormula.RctGibbsEnergy/>,
-        RctMicrobeCmfr: <RctFormula.RctMicrobeCmfr rctData={ data }/>,
-        RctMonodEquation: <RctFormula.RctMonodEquation/>,
-        RctProbabilityMassFunction: <RctFormula.RctProbabilityMassFunction/>,
+		/*RctGibbsEnergy: <RctFormula.RctGibbsEnergy/>,*/
+        RctMicrobeCmfr: <RctFormula.RctFormula2 rctData={data.RctMicrobeCmfr.content}/>,
+        RctMonodEquation: <RctFormula.RctFormula2 rctData={data.RctMonodEquation.content}/>,
+        /*RctProbabilityMassFunction: <RctFormula.RctProbabilityMassFunction/>,
 		RctPoissonDistribution: <RctFormula.RctPoissonDistribution/>,
 		RctAminoAcidTable: <RctBiology.RctAminoAcidTable/>,
 		RctCellComponents: <RctBiology.RctCellComponents/>,
 		RctNucleicAcidsTable: <RctBiology.RctNucleicAcidsTable/>,
 		RctUnicellularTrophism: <RctBiology.RctUnicellularTrophism/>,
-		RctRnaCodonTable: <RctBiology.RctRnaCodonTable/>
+		RctRnaCodonTable: <RctBiology.RctRnaCodonTable/>*/
 	}
 	constructor() {
 		super();

@@ -1,15 +1,26 @@
 import React from 'react';
 import * as MathJax from 'react-mathjax';
 
-class RctMicrobeCmfr extends React.PureComponent {
+class RctFormula2 extends React.Component {
 	constructor( props ) {
 		super( props );
     this.state = {
-      arrJsx: RctMicrobeCmfr.buildJsx( props.rctData, [], 0 )
+      arrJsx: RctFormula2.buildJsx( props.rctData, [], 0 )
     };
 	}
+  componentWillReceiveProps( nextProps ){
+    console.log("test:");
+    console.log(nextProps.rctData);
+    this.setState({
+      arrJsx: RctFormula2.buildJsx( nextProps.rctData, [], 0 )
+    });
+    console.log( this.state.arrJsx );
+  }
+  componentDidUpdate() {
+    console.log( "RctFormula2.componentDidUpdate()" );
+    console.log( this.state.arrJsx );
+  }
   static buildJsx( data, arrJsx, level ) {
-    console.log( level );
     for ( var i = 0; i < data.length; i++ ) {
       if ( level === 0 ) {
         arrJsx.push( <h1>{ data[ i ].title }</h1> );
@@ -23,14 +34,14 @@ class RctMicrobeCmfr extends React.PureComponent {
         arrJsx.push( <p>{ data[ i ].title }</p> );
       }
     for ( var j = 0; j < data[ i ].content.length; j++ ) {
-      console.log ( data[ i ].content[ j ] );
+      //console.log ( data[ i ].content[ j ] );
       var line = [];
       for ( var k = 0; k < data[ i ].content[ j ].length; k++ ) {
         if ( data[ i ].content[ j ][ k ].startsWith( "{`" ) === true ) {
           var strTex = data[ i ].content[ j ][ k ];
-          console.log( strTex );
+          //console.log( strTex );
           strTex = strTex.substr( 2, strTex.length - 4 )
-          console.log( strTex );
+          //console.log( strTex );
           line.push( <MathJax.Context><MathJax.Node>{ strTex }</MathJax.Node></MathJax.Context> )
         } else {
           line.push( <span>{ data[ i ].content[ j ][ k ] }</span> )
@@ -46,12 +57,14 @@ class RctMicrobeCmfr extends React.PureComponent {
     return arrJsx;
   }
   render() {
+    console.log( "RctFormula2.render()" );
+    console.log( this.state.arrJsx );
     return (
-      <div className="RctMicrobeCmfr">
+      <div className="RctFormula2">
       	{ this.state.arrJsx }
 		  </div>
     );
   }
 }
 
-export default RctMicrobeCmfr;
+export default RctFormula2;
