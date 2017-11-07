@@ -72,5 +72,57 @@
 				]
 			}
 		]	
+	},
+	"RctGibbsEnergy":{
+		"caption":"Gibbs energy",
+		"content":[
+			{
+				"title":"Gibbs energy",
+				"content":[
+					["Syn.: Gibbs free energy; Gibbs function; free enthalpy."],
+					["{`\\rm{\\Delta G^{0\\prime}=G_f^0[C+D]-G_f^0[A+B]}`}"],
+					["{`\\rm{\\Delta G^{0\\prime}=}`}","  Gibbs energy"]
+				],
+				"subsections":[]
+			}
+		]
+	},
+	"RctPoissonDistribution":{
+		"caption":"Poisson distribution",
+		"content":[
+			{
+				"title":"Poisson distribution",
+				"content":[
+					["{`\\rm{ P = \\frac{ e^{ -\\lambda } \\lambda^k }{ k! } }`}"],
+					["{`\\rm{ P = }`}"," observed probability"],
+					["{`\\rm{ e = 2.71828 }`}"],
+					["{`\\rm{ \\lambda = }`}"," true probability"],
+					["{`\\rm{ k = }`}"," quantity of observed events; an integer: 0, 1, 2..."]
+				],
+				"subsections":[]
+			}
+		]
+	},
+	"RctProbabilityMassFunction":{
+		"caption":"Probability mass function",
+		"content":[
+			{
+				"title":"Binomial distribution",
+				"content":[],
+				"subsections":[
+					{
+						"title":"Probability mass function",
+						"content":[
+							["{`\\rm{ P = \\frac{ n! p^k ( 1 - p )^{ n - k } }{ k! ( n - k )! } }`}"],
+							["{`\\rm{ P = }`}"," probability of k successful attempts"],
+							["{`\\rm{ n = }`}"," quantity of attempts"],
+							["{`\\rm{ p = }`}"," probability per attempt"],
+							["{`\\rm{ k = }`}"," quantity of successful attempts"]
+						],
+						"subsections":[]
+					}
+				]
+			}
+		]
 	}
 }

@@ -12,12 +12,12 @@ import data from "./formula/RctMicrobeCmfr.json";
 
 class App extends React.Component {
 	static views = {
-		/*RctGibbsEnergy: <RctFormula.RctGibbsEnergy/>,*/
-        RctMicrobeCmfr: <RctFormula.RctFormula2 rctData={data.RctMicrobeCmfr.content}/>,
-        RctMonodEquation: <RctFormula.RctFormula2 rctData={data.RctMonodEquation.content}/>,
-        /*RctProbabilityMassFunction: <RctFormula.RctProbabilityMassFunction/>,
-		RctPoissonDistribution: <RctFormula.RctPoissonDistribution/>,
-		RctAminoAcidTable: <RctBiology.RctAminoAcidTable/>,
+		RctGibbsEnergy: <RctFormula.RctFormula2 rctData={data.RctGibbsEnergy.content}/>,
+    RctMicrobeCmfr: <RctFormula.RctFormula2 rctData={data.RctMicrobeCmfr.content}/>,
+    RctMonodEquation: <RctFormula.RctFormula2 rctData={data.RctMonodEquation.content}/>,
+    RctProbabilityMassFunction: <RctFormula.RctFormula2 rctData={data.RctProbabilityMassFunction.content}/>,
+		RctPoissonDistribution: <RctFormula.RctFormula2 rctData={data.RctPoissonDistribution.content}/>,
+		/*RctAminoAcidTable: <RctBiology.RctAminoAcidTable/>,
 		RctCellComponents: <RctBiology.RctCellComponents/>,
 		RctNucleicAcidsTable: <RctBiology.RctNucleicAcidsTable/>,
 		RctUnicellularTrophism: <RctBiology.RctUnicellularTrophism/>,
