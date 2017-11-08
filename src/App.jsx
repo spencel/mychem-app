@@ -8,6 +8,7 @@ import * as RctBiology from "./biology/RctBiology.jsx";
 import styles from "./App.css";
 
 // Data
+import RctBiologyJson from "./biology/RctBiology.json"
 import RctFormulaJson from "./formula/RctFormula.json";
 
 class App extends React.Component {
@@ -72,13 +73,27 @@ class App extends React.Component {
         App.viewList[ key ] = <RctFormula rctData={RctFormulaJson[ key ].content}/>;
       }
     }
+    for ( var key in RctBiologyJson ) {
+      if ( RctBiologyJson.hasOwnProperty( key ) ) {
+        App.menuStructure.push({
+        "type": "BUTTON",
+          "caption": RctBiologyJson[ key ].caption,
+          "action":{
+            "type": "LOADVIEW",
+            "args": key
+          }
+        });
+        App.viewList[ key ] = <RctFormula rctData={RctBiologyJson[ key ].content}/>;
+        console.log( App.viewList )
+      }
+    }
   }
 	constructor() {
 		super();
     App.buildMenuAndViewList();
 		this.state = {
 			menuVisible: false, 
-			viewportContents: App.viewList.RctPoissonDistribution
+			viewportContents: App.viewList.RctExponentialGrowth
 		};
 		//this.handleMenuInput = this.handleMenuInput.bind( this )
 	}
@@ -102,14 +117,16 @@ class App extends React.Component {
 		}
 		*/
 		if ( input[ "type" ] === "LOADVIEW" ) {
+			console.log("input[ \"type\" ]: " + input[ "type" ])
+			console.log("input[ \"args\" ]: " + input[ "args" ])
 			this.setState(( prevState/*, props*/ ) => {
-				return { viewportContents: App.views[ input[ "args" ] ] };
+				return { viewportContents: App.viewList[ input[ "args" ] ] };
 			});
 		} else {
 
 		}
 		
-		console.log( this.state.viewportContents );
+		//console.log( this.state.viewportContents );
 	}
   render() {
   

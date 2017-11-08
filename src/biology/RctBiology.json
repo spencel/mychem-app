@@ -1,0 +1,46 @@
+{
+	"RctCentralDogmaOfMolecularBiology":{
+		"caption":"Central dogma of molecular biology",
+		"content":[
+			{
+				"title": "Central dogma of molecular biology",
+				"content": [
+					["DNA and RNA are read in the 3' to 5' direction and synthesized in the 5' to 3' direction."]
+				],
+				"subsections": [
+					{
+						"title": "DNA Replication",
+						"content": [
+							["The process of DNA polymerase (DNAP) synthesizing DNA complimentary to a DNA template. The result can either be single-stranded DNA (ssDNA) or double-stranded DNA (dsDNA)."]
+						],
+						"subsections": []
+					},{
+						"title": "RNA Replication",
+						"content": [
+							["The process of RNA polymerase (RNAP) synthesizing RNA complimentary to an RNA template. The result can either be single-stranded RNA (ssRNA), double-stranded RNA (dsRNA), or messenger RNA (mRNA)."]
+						],
+						"subsections": []
+					},{
+						"title": "Transcription",
+						"content": [
+							["The process of RNAP synthesizing RNA complimentary to a DNA template. If this RNA will be translated by a ribosome, then it is called mRNA; RNA that is not translated is called non-coding RNA (ncRNA), which is further subcategorized."]
+						],
+						"subsections": []
+					},{
+						"title": "Reverse Transcription",
+						"content": [
+							["The process of reverse transcriptase (RT) synthesizing DNA complimentary to an RNA template."]
+						],
+						"subsections": []
+					},{
+						"title": "Translation",
+						"content": [
+							["The process at ribosomes (ribosomal RNA (rRNA)) where amino acids, delivered by transfer RNA (tRNA) corresponding to mRNA, are bonded to form peptides. An mRNA consists of a continuous series of triplet nucleotide sequences called codons. Each codon corresponds to a complimentary anticodon of a particular tRNA. Each tRNA has a single amino acid."]
+						],
+						"subsections": []
+					}
+				]
+			}
+		]
+	}
+}

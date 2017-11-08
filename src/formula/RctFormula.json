@@ -1,4 +1,32 @@
 {
+	"RctExponentialGrowth":{
+		"caption":"Exponential growth",
+		"content":[
+			{
+				"title": "Exponential growth",
+				"content": [
+					["{`\\rm{ x = x_0 e^{kt} }`}"],
+					["{`\\rm{ x = }`}"," quantity after elapsed time"],
+					["{`\\rm{ x_0 = }`}"," initial quantity"],
+					["{`\\rm{ k = }`}"," instantaneous growth constant (1/s)"],
+					["{`\\rm{ t = }`}"," elapsed time (s)"]
+				],
+				"subsections": [
+					{
+						"title": "Generation time",
+						"content": [
+							["{`\\rm{ g = \\frac{t}{n} = \\frac{ \\ln{2} }{ k } }`}"],
+							["{`\\rm{ g = }`}"," elapsed time per generation (s)"],
+							["{`\\rm{ t = }`}"," elapsed time (s)"],
+							["{`\\rm{ n = }`}"," quantity of generations after elapsed time"],
+							["{`\\rm{ k = }`}"," instantaneous growth constant (1/s)"]
+						],
+						"subsections": []
+					}
+				]
+			}
+		]
+	},
 	"RctMicrobeCmfr":{
 		"caption":"Microbe CMFR",
 		"content":[
