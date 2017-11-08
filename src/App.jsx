@@ -60,6 +60,14 @@ class App extends React.Component {
       RctUnicellularTrophism: <RctBiology.RctUnicellularTrophism/>,
       RctRnaCodonTable: <RctBiology.RctRnaCodonTable/>
     }
+    /*var formulaCategory = {
+      "type": "CATEGORY",
+      "caption": "formulas",
+      "action": {
+        "type": "LOADCATEGORY",
+        "args": "RctFormula"
+      }
+    }*/
     for ( var key in RctFormulaJson ) {
       if ( RctFormulaJson.hasOwnProperty( key ) ) {
         App.menuStructure.push({
@@ -73,6 +81,14 @@ class App extends React.Component {
         App.viewList[ key ] = <RctFormula rctData={RctFormulaJson[ key ].content}/>;
       }
     }
+    /*var biologyCategory = {
+      "type": "CATEGORY",
+      "caption": "biology",
+      "action": {
+        "type": "LOADCATEGORY",
+        "args": "RctBiology"
+      }
+    }*/
     for ( var key in RctBiologyJson ) {
       if ( RctBiologyJson.hasOwnProperty( key ) ) {
         App.menuStructure.push({
@@ -128,12 +144,11 @@ class App extends React.Component {
 		
 		//console.log( this.state.viewportContents );
 	}
-  render() {
-  
+  render() {  
     return (
       <div className="App">
       	<RctUserInterface.RctHeader rctOnInput={ this.handleHeaderInput }/>
-      	<RctUserInterface.RctMenu
+      	<RctUserInterface.RctNavMenu
       		rctVisible={ this.state.menuVisible }
       		rctStructure={ App.menuStructure }
       		rctOnInput={ this.handleMenuInput }

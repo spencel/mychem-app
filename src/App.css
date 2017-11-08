@@ -110,6 +110,37 @@ div.RctMenu li:hover {
   background-color: hsl(0, 0%, 98%);
 }
 
+div.RctNavMenu {
+  position: absolute;
+  display: inline-block;
+  right: 0px;
+  top: 20px;
+  bottom: 0;
+  z-index: 1;
+  background-color: hsl(0, 0%, 98%);
+}
+
+div.RctNavMenu ul {
+  position: fixed;
+  margin:0px; /* overrides default */
+  padding: 0px; /* overrides default */
+  right: 0;
+  top: 20px;
+  bottom:0;
+  list-style: none;
+  overflow-y: auto; /* scrollbar hides if not needed */
+}
+
+div.RctNavMenu li {
+  border: 1px solid hsl(0, 0%, 98%);
+  background-color: hsl(0, 0%, 94%);
+}
+
+div.RctNavMenu li:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 98%);
+}
+
 div.RctViewport {
   position: absolute;
   display: block;
