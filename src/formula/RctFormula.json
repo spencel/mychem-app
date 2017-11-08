@@ -22,6 +22,25 @@
 							["{`\\rm{ k = }`}"," instantaneous growth constant (1/s)"]
 						],
 						"subsections": []
+					},{
+						"title": "Example",
+						"content": [
+							["If the generation time of particular bacterium is 20 minutes, then how many generations will have occured after 1 day?"],
+							["{`\\rm{ g = 20 \\text{ minutes} }`}"],
+							["{`\\rm{ t = 1 \\text{ day} }`}"],
+							["{`\\rm{ g = \\frac{t}{n} \\longrightarrow n = \\frac{t}{g} }`}"],
+							["{`\\rm{ n = 1 \\text{ day} \\left(\\frac{1 \\text{ generation}}{20 \\text{ minutes}} \\right) \\left( \\frac{ 24 \\text{ hours} }{ 1 \\text{ day} }\\right) \\left( \\frac{ 60 \\text{ minutes} }{ 1 \\text{ hour} }\\right) }`}"],
+							["{`\\rm{ n = 72 \\text{ generations} }`}"],
+							["If the initial population is 5, what will be the population after 36 hours?"],
+							["{`\\rm{ x_0 = 5 \\text{ cells} }`}"],
+							["{`\\rm{ t = 36 \\text{ hours} }`}"],
+							["{`\\rm{ g = \\frac{ \\ln{2} }{ k } \\longrightarrow k = \\frac{ \\ln{2} }{ g } }`}"],
+							["{`\\rm{ k = \\frac{ \\ln{2} }{ 20 \\text{ minutes} }\\left(\\frac{60 \\text{ minutes}}{1 \\text{ hour}}\\right) }`}"],
+							["{`\\rm{ k = 2.08 \\text{ hour}^{-1} }`}"],
+							["{`\\rm{ x = x_0 e^{kt} }`}"],
+							["{`\\rm{ x = \\left( 5 \\text{ cells}\\right) e^{\\left(\\frac{2.08}{\\text{hour}}\\right)36 \\text{ hours}} = 1.623\\times10^{33}\\text{ cells}}`}"]
+						],
+						"subsections": []
 					}
 				]
 			}
