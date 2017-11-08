@@ -57,16 +57,21 @@ div.RctHeader {
   height: 20px;
   z-index: 1;
   text-align: right;
-  background-color: hsl(0, 0%, 98%);
+  font-size: small;
+  background-color: hsl(0, 0%, 94%);
+}
+
+div.RctHeader div.demo {
+  position: absolute;
+  display: inline-block;
+  left: 1px;
+  top: 1px;
 }
 
 div.RctHeader div.button {
   position: static;
   display: inline-block;
-  border: 1px solid hsl(0, 0%, 98%);
-  width: 18px;
   text-align: center;
-  background-color: hsl(0, 0%, 94%);
 }
 
 div.RctHeader div.button:hover {
