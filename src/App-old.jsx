@@ -8,15 +8,51 @@ import * as RctBiology from "./biology/RctBiology.jsx";
 import styles from "./App.css";
 
 // Data
-import RctBiologyJson from "./biology/RctBiology.json";
+import RctBiologyJson from "./biology/RctBiology.json"
 import RctFormulaJson from "./formula/RctFormula.json";
-import RctNavMenuJson from "./user-interface/RctNavMenu.json";
 
 class App extends React.Component {
   static menuStructure = [];
   static viewList = {};
   static buildMenuAndViewList() {
-    App.menuStructure = RctNavMenuJson;
+    App.menuStructure = [
+        {
+          "type": "BUTTON", 
+          "caption": "Amino acid table",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctAminoAcidTable"
+          }
+        },{
+          "type": "BUTTON", 
+          "caption": "Cell component list",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctCellComponents"
+          }
+        },{
+          "type": "BUTTON", 
+          "caption": "Nucleic acid table",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctNucleicAcidsTable"
+          }
+        },{
+          "type": "BUTTON", 
+          "caption": "Unicellular trophism table",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctUnicellularTrophism"
+          }
+        },{
+          "type": "BUTTON", 
+          "caption": "RNA codon table",
+          "action": {
+            "type": "LOADVIEW",
+            "args": "RctRnaCodonTable"
+          }
+        }
+      ]
     App.viewList = {
       RctAminoAcidTable: <RctBiology.RctAminoAcidTable/>,
       RctCellComponents: <RctBiology.RctCellComponents/>,
@@ -24,7 +60,15 @@ class App extends React.Component {
       RctUnicellularTrophism: <RctBiology.RctUnicellularTrophism/>,
       RctRnaCodonTable: <RctBiology.RctRnaCodonTable/>
     }
-    /*for ( var key in RctFormulaJson ) {
+    var formulaCategory = {
+      "type": "CATEGORY",
+      "caption": "formulas",
+      "action": {
+        "type": "LOADCATEGORY",
+        "args": "RctFormula"
+      }
+    }
+    for ( var key in RctFormulaJson ) {
       if ( RctFormulaJson.hasOwnProperty( key ) ) {
         App.menuStructure.push({
         "type": "BUTTON",
@@ -35,6 +79,14 @@ class App extends React.Component {
           }
         });
         App.viewList[ key ] = <RctFormula rctData={RctFormulaJson[ key ].content}/>;
+      }
+    }
+    var biologyCategory = {
+      "type": "CATEGORY",
+      "caption": "biology",
+      "action": {
+        "type": "LOADCATEGORY",
+        "args": "RctBiology"
       }
     }
     for ( var key in RctBiologyJson ) {
@@ -50,7 +102,7 @@ class App extends React.Component {
         App.viewList[ key ] = <RctFormula rctData={RctBiologyJson[ key ].content}/>;
         console.log( App.viewList )
       }
-    }*/
+    }
   }
 	constructor() {
 		super();
