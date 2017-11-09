@@ -30,14 +30,14 @@ class App extends React.Component {
             "type": "LOADVIEW",
             "args": "RctCellComponents"
           }
-        }       ,{
+        },{
           "type": "BUTTON", 
           "caption": "Nucleic acid table",
           "action": {
             "type": "LOADVIEW",
             "args": "RctNucleicAcidsTable"
           }
-        }       ,{
+        },{
           "type": "BUTTON", 
           "caption": "Unicellular trophism table",
           "action": {
@@ -60,14 +60,14 @@ class App extends React.Component {
       RctUnicellularTrophism: <RctBiology.RctUnicellularTrophism/>,
       RctRnaCodonTable: <RctBiology.RctRnaCodonTable/>
     }
-    /*var formulaCategory = {
+    var formulaCategory = {
       "type": "CATEGORY",
       "caption": "formulas",
       "action": {
         "type": "LOADCATEGORY",
         "args": "RctFormula"
       }
-    }*/
+    }
     for ( var key in RctFormulaJson ) {
       if ( RctFormulaJson.hasOwnProperty( key ) ) {
         App.menuStructure.push({
@@ -81,14 +81,14 @@ class App extends React.Component {
         App.viewList[ key ] = <RctFormula rctData={RctFormulaJson[ key ].content}/>;
       }
     }
-    /*var biologyCategory = {
+    var biologyCategory = {
       "type": "CATEGORY",
       "caption": "biology",
       "action": {
         "type": "LOADCATEGORY",
         "args": "RctBiology"
       }
-    }*/
+    }
     for ( var key in RctBiologyJson ) {
       if ( RctBiologyJson.hasOwnProperty( key ) ) {
         App.menuStructure.push({
