@@ -1,8 +1,8 @@
 [
 	[
-		{"TYPE":["BUTTON"]},
+		{"TYPE":["RCT_BUTTON"]},
 		"CAPTION",
-		{"ACTION":["LOADCATEGORY","LOADVIEW"]},
+		{"ACTION":["LOAD_CATEGORY","LOAD_VIEW"]},
 		"ARGS"
 	],
 	[0, "Amino acid table", 1, "RctAminoAcidTable"],

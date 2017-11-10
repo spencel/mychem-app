@@ -5,6 +5,10 @@ class RctHeader extends React.Component {
 	constructor( props ) {
 		super( props );
 	}
+  toggleMenuVisibility = ( rctEvent ) => {
+    //console.log( rctEvent )
+    this.props.rctOnInput( rctEvent, "TOGGLE_MENU_VISIBILITY" );
+  }
   render() {
 		return (
       <div className="RctHeader">
@@ -12,7 +16,7 @@ class RctHeader extends React.Component {
       	<div 
       		id="toggleMenuButton"
       		className="button"
-      		onClick={ this.props.rctOnInput.bind( this, "toggleMenuButton" ) }>
+      		onClick={ this.toggleMenuVisibility }>
       		<img src={ toggleMenuIcon } width="20" height="20"/>
       	</div>
       </div>

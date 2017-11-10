@@ -59,10 +59,15 @@ class App extends React.Component {
 			menuVisible: false, 
 			viewportContents: App.viewList.RctExponentialGrowth
 		};
-		//this.handleMenuInput = this.handleMenuInput.bind( this )
 	}
-	handleHeaderInput = ( buttonId ) => {
-		if ( buttonId === "toggleMenuButton" ) {
+	handleInput = ( rctEvent, args ) => {
+    console.log("App.handleInput()");
+    //console.log("this: ");
+    //console.log(this);
+    //console.log( rctEvent );
+    //console.log( rctEvent.target );
+    console.log( args );
+		if ( args === "TOGGLE_MENU_VISIBILITY" ) {
 			this.setState(( prevState/*, props*/ ) => {
 				if ( prevState.menuVisible === true ) {
 					return { menuVisible: false };
@@ -70,36 +75,24 @@ class App extends React.Component {
 					return { menuVisible: true };
 				}
 			});
-		}
+		} else if ( args.class === "RctButton" ) {
+      if ( args.action === "LOAD_VIEW" ) {
+        console.log( RctBiology );
+        console.log( RctBiology[args.args]);
+        var component = args.args;
+        this.setState({viewportContents: App.viewList[ component ] })
+      }
+    }
 	}
-	handleMenuInput = ( input ) => {
-		console.log( "App.handleMenuInput()" );
-		/* To update RctViewport, RctViewport requires thise code inside of it:
-		componentWillReceiveProps( newProps ) {
-			console.log( "RctViewport.componentWillReceiveProps()" );
-			this.setState({ rctContents: newProps.rctContents })
-		}
-		*/
-		if ( input[ "type" ] === "LOADVIEW" ) {
-			console.log("input[ \"type\" ]: " + input[ "type" ])
-			console.log("input[ \"args\" ]: " + input[ "args" ])
-			this.setState(( prevState/*, props*/ ) => {
-				return { viewportContents: App.viewList[ input[ "args" ] ] };
-			});
-		} else {
-
-		}
-		
-		//console.log( this.state.viewportContents );
-	}
-  render() {  
+  render() {
+    var id = 5;
     return (
       <div className="App">
-      	<RctUserInterface.RctHeader rctOnInput={ this.handleHeaderInput }/>
+      	<RctUserInterface.RctHeader rctOnInput={ this.handleInput }/>
       	<RctUserInterface.RctNavMenu
       		rctVisible={ this.state.menuVisible }
       		rctStructure={ App.menuStructure }
-      		rctOnInput={ this.handleMenuInput }
+      		rctOnInput={ this.handleInput }
       	/>
       	<RctUserInterface.RctViewport rctContents={ this.state.viewportContents }/>
       </div>
