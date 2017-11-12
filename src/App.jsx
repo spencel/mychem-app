@@ -7,82 +7,75 @@ import * as RctBiology from "./biology/RctBiology.jsx";
 // Styles
 import styles from "./App.css";
 
-// Data
-import RctBiologyJson from "./biology/RctBiology.json";
-import RctFormulaJson from "./formula/RctFormula.json";
+// Json
 import RctNavMenuJson from "./user-interface/RctNavMenu.json";
+import RctBiologyJson from "./biology/RctBiology.json";
+import RctBiologyMenuJson from "./biology/RctBiologyMenu.json";
+import RctFormulaJson from "./formula/RctFormula.json";
+import RctFormulaMenuJson from "./formula/RctFormulaMenu.json"
+
 
 class App extends React.Component {
   static menuStructure = [];
   static viewList = {};
   static buildMenuAndViewList() {
+  	//console.log("App.buildMenuAndViewList()");
     App.menuStructure = RctNavMenuJson;
-    App.viewList = {
-      RctAminoAcidTable: <RctBiology.RctAminoAcidTable/>,
-      RctCellComponents: <RctBiology.RctCellComponents/>,
-      RctNucleicAcidsTable: <RctBiology.RctNucleicAcidsTable/>,
-      RctUnicellularTrophism: <RctBiology.RctUnicellularTrophism/>,
-      RctRnaCodonTable: <RctBiology.RctRnaCodonTable/>
-    }
-    /*for ( var key in RctFormulaJson ) {
+    App.viewList = {};
+    for ( var key in RctFormulaJson ) {
       if ( RctFormulaJson.hasOwnProperty( key ) ) {
-        App.menuStructure.push({
-        "type": "BUTTON",
-          "caption": RctFormulaJson[ key ].caption,
-          "action":{
-            "type": "LOADVIEW",
-            "args": key
-          }
-        });
-        App.viewList[ key ] = <RctFormula rctData={RctFormulaJson[ key ].content}/>;
+        App.viewList[ key ] = <RctFormula rctData={ RctFormulaJson[ key ] }/>;
       }
     }
+    //console.log("RctBiologyJson:");
+    //console.log(RctBiologyJson);
     for ( var key in RctBiologyJson ) {
-      if ( RctBiologyJson.hasOwnProperty( key ) ) {
-        App.menuStructure.push({
-        "type": "BUTTON",
-          "caption": RctBiologyJson[ key ].caption,
-          "action":{
-            "type": "LOADVIEW",
-            "args": key
-          }
-        });
-        App.viewList[ key ] = <RctFormula rctData={RctBiologyJson[ key ].content}/>;
-        console.log( App.viewList )
+    	//console.log("key: " + key );
+    	if ( RctBiologyJson.hasOwnProperty( key ) ) {
+    		//console.log("RctBiologyJson[ key ]:");
+    		//console.log(RctBiologyJson[ key ]);
+        App.viewList[ key ] = <RctFormula rctData={ RctBiologyJson[ key ] }/>;
       }
-    }*/
+    }
   }
 	constructor() {
 		super();
     App.buildMenuAndViewList();
 		this.state = {
 			menuVisible: false, 
-			viewportContents: App.viewList.RctExponentialGrowth
+			viewportContents: App.viewList.RctExponentialGrowth,
+			subMenuList: {
+				RctNavMenuRoot: RctNavMenuJson,
+				RctFormulaMenu: RctFormulaMenuJson,
+				RctBiologyMenu: RctBiologyMenuJson
+			}
 		};
 	}
-	handleInput = ( rctEvent, args ) => {
-    console.log("App.handleInput()");
+	handleInput = ( args ) => {
+    //console.log("App.handleInput()");
     //console.log("this: ");
     //console.log(this);
     //console.log( rctEvent );
     //console.log( rctEvent.target );
-    console.log( args );
-		if ( args === "TOGGLE_MENU_VISIBILITY" ) {
-			this.setState(( prevState/*, props*/ ) => {
-				if ( prevState.menuVisible === true ) {
-					return { menuVisible: false };
-				} else /*( prevState.menuVisible === false )*/ {
-					return { menuVisible: true };
-				}
-			});
-		} else if ( args.class === "RctButton" ) {
-      if ( args.action === "LOAD_VIEW" ) {
-        console.log( RctBiology );
-        console.log( RctBiology[args.args]);
-        var component = args.args;
-        this.setState({viewportContents: App.viewList[ component ] })
-      }
-    }
+    //console.log("args:");
+    //console.log(args);
+    switch ( args.action ) {
+			case "TOGGLE_MENU_VISIBILITY":
+				this.setState(( prevState/*, props*/ ) => {
+					if ( prevState.menuVisible === true ) {
+						return { menuVisible: false };
+					} else /*( prevState.menuVisible === false )*/ {
+						return { menuVisible: true };
+					}
+				});
+			break;
+			case "LOAD_VIEW":
+				//console.log("case: \"LOAD_VIEW\"");
+        var componentName = args.args;
+        //console.log("componentName: " + componentName);
+        this.setState({viewportContents: App.viewList[ componentName ] })
+			break;
+	   }
 	}
   render() {
     var id = 5;
@@ -90,9 +83,10 @@ class App extends React.Component {
       <div className="App">
       	<RctUserInterface.RctHeader rctOnInput={ this.handleInput }/>
       	<RctUserInterface.RctNavMenu
-      		rctVisible={ this.state.menuVisible }
-      		rctStructure={ App.menuStructure }
-      		rctOnInput={ this.handleInput }
+      		rctVisible = { this.state.menuVisible }
+      		rctStructure = { App.menuStructure }
+      		rctOnInput = { this.handleInput }
+      		rctSubMenuList = { this.state.subMenuList }
       	/>
       	<RctUserInterface.RctViewport rctContents={ this.state.viewportContents }/>
       </div>

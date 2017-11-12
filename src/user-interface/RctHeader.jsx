@@ -7,7 +7,10 @@ class RctHeader extends React.Component {
 	}
   toggleMenuVisibility = ( rctEvent ) => {
     //console.log( rctEvent )
-    this.props.rctOnInput( rctEvent, "TOGGLE_MENU_VISIBILITY" );
+    var args = {
+      action: "TOGGLE_MENU_VISIBILITY"
+    }
+    this.props.rctOnInput( args );
   }
   render() {
 		return (

@@ -1,6 +1,7 @@
 {
 	"RctExponentialGrowth":{
 		"caption":"Exponential growth",
+		"isHtml":false,
 		"content":[
 			{
 				"title": "Exponential growth",
@@ -48,6 +49,7 @@
 	},
 	"RctMicrobeCmfr":{
 		"caption":"Microbe CMFR",
+		"isHtml":false,
 		"content":[
 			{
 				"title": "Microbe CMFR",
@@ -93,6 +95,7 @@
 	},
 	"RctMonodEquation":{
 		"caption":"Monod Equation",
+		"isHtml":false,
 		"content":[
 			{
 				"title": "Monod equation",
@@ -122,6 +125,7 @@
 	},
 	"RctGibbsEnergy":{
 		"caption":"Gibbs energy",
+		"isHtml":false,
 		"content":[
 			{
 				"title":"Gibbs energy",
@@ -136,6 +140,7 @@
 	},
 	"RctPoissonDistribution":{
 		"caption":"Poisson distribution",
+		"isHtml":false,
 		"content":[
 			{
 				"title":"Poisson distribution",
@@ -152,6 +157,7 @@
 	},
 	"RctProbabilityMassFunction":{
 		"caption":"Probability mass function",
+		"isHtml":false,
 		"content":[
 			{
 				"title":"Binomial distribution",

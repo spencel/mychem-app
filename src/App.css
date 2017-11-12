@@ -1,54 +1,44 @@
 .App {
   text-align: left;
 }
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
-
 .App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
-
 .App-intro {
   font-size: large;
 }
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 body {
   color:  hsl(0, 0%, 10%);
   background-color: hsl(0, 0%, 98%);
 }
-
 table {
   position: static;
   display:  inline-block;
   border-collapse:  collapse;
   text-align: left;
 }
-
 th {
   border:   1px solid hsl(0, 0%, 80%);
   padding:  5px;
 }
-
 td {
   border:   1px solid hsl(0, 0%, 80%);
   padding:  5px;
 }
-
 td.empty {
   background-color: hsl(0, 0%, 80%);
 }
-
 div.RctHeader {
   position: fixed;
   display: block;
@@ -60,25 +50,21 @@ div.RctHeader {
   font-size: small;
   background-color: hsl(0, 0%, 94%);
 }
-
 div.RctHeader div.demo {
   position: absolute;
   display: inline-block;
   left: 2px;
   top: 2px;
 }
-
 div.RctHeader div.button {
   position: static;
   display: inline-block;
   text-align: center;
 }
-
 div.RctHeader div.button:hover {
   cursor: pointer;
   background-color: hsl(0, 0%, 98%);
 }
-
 div.RctMenu {
   position: absolute;
   display: inline-block;
@@ -88,7 +74,6 @@ div.RctMenu {
   z-index: 1;
   background-color: hsl(0, 0%, 98%);
 }
-
 div.RctMenu ul {
   position: fixed;
   margin:0px; /* overrides default */
@@ -99,17 +84,14 @@ div.RctMenu ul {
   list-style: none;
   overflow-y: auto; /* scrollbar hides if not needed */
 }
-
 div.RctMenu li {
   border: 1px solid hsl(0, 0%, 98%);
   background-color: hsl(0, 0%, 94%);
 }
-
 div.RctMenu li:hover {
   cursor: pointer;
   background-color: hsl(0, 0%, 98%);
 }
-
 div.RctNavMenu {
   position: absolute;
   display: inline-block;
@@ -119,7 +101,6 @@ div.RctNavMenu {
   z-index: 1;
   background-color: hsl(0, 0%, 98%);
 }
-
 div.RctNavMenu ul {
   position: fixed;
   margin:0px; /* overrides default */
@@ -130,15 +111,17 @@ div.RctNavMenu ul {
   list-style: none;
   overflow-y: auto; /* scrollbar hides if not needed */
 }
-
 div.RctNavMenu li {
   border: 1px solid hsl(0, 0%, 98%);
   background-color: hsl(0, 0%, 94%);
 }
-
 div.RctNavMenu li:hover {
   cursor: pointer;
   background-color: hsl(0, 0%, 98%);
+}
+div.RctNavMenu div.currentLevelCaption {
+  font-size: x-small;
+  font-weight: bold;
 }
 
 div.RctViewport {
@@ -150,7 +133,6 @@ div.RctViewport {
   text-align: center;
   background-color: hsl(0, 0%, 98%);
 }
-
 div.RctViewport div.subViewport {
   position: static;
   display: inline-block;
@@ -158,7 +140,6 @@ div.RctViewport div.subViewport {
   text-align: left;
   background-color: hsl(0, 0%, 98%);
 }
-
 span.mjx-chtml.MJXc-display {
   margin-top: 6px;    /* overrides ~15px default */
   margin-bottom: 6px; /* overrides ~15px default */
