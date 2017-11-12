@@ -1,0 +1,12 @@
+{
+	"RctFoo":{
+		"caption":"foo",
+		"isHtml":true,
+		"content":["foo"]
+	},
+	"RctBar":{
+		"caption":"bar",
+		"isHtml":true,
+		"content":["bar"]
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"meta":[
+		{"type":["RCT_BUTTON"]},
+		"caption",
+		{"action":["LOAD_CATEGORY","LOAD_VIEW"]},
+		"args"
+	],
+	"caption":"another subcategory",
+	"data":[
+		[0, "foo", 1, "RctFoo"],
+		[0, "bar", 1, "RctBar"],
+		[0, "another subcategory", 0, "RctAnotherSubcategory"]
+	]
+}

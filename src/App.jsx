@@ -13,6 +13,8 @@ import RctBiologyJson from "./biology/RctBiology.json";
 import RctBiologyMenuJson from "./biology/RctBiologyMenu.json";
 import RctFormulaJson from "./formula/RctFormula.json";
 import RctFormulaMenuJson from "./formula/RctFormulaMenu.json"
+import RctAnotherSubcategoryJson from "./another-subcategory/RctAnotherSubcategory.json";
+import RctAnotherSubcategoryMenuJson from "./another-subcategory/RctAnotherSubcategoryMenu.json"
 
 
 class App extends React.Component {
@@ -37,6 +39,11 @@ class App extends React.Component {
         App.viewList[ key ] = <RctFormula rctData={ RctBiologyJson[ key ] }/>;
       }
     }
+    for ( var key in RctAnotherSubcategoryJson ) {
+      if ( RctAnotherSubcategoryJson.hasOwnProperty( key ) ) {
+        App.viewList[ key ] = <RctFormula rctData={ RctAnotherSubcategoryJson[ key ] }/>;
+      }
+    }
   }
 	constructor() {
 		super();
@@ -45,9 +52,10 @@ class App extends React.Component {
 			menuVisible: false, 
 			viewportContents: App.viewList.RctExponentialGrowth,
 			subMenuList: {
-				RctNavMenuRoot: RctNavMenuJson,
+				RctNavMenu: RctNavMenuJson,
 				RctFormulaMenu: RctFormulaMenuJson,
-				RctBiologyMenu: RctBiologyMenuJson
+				RctBiologyMenu: RctBiologyMenuJson,
+        RctAnotherSubcategory: RctAnotherSubcategoryMenuJson
 			}
 		};
 	}

@@ -5,6 +5,7 @@
 		{"action":["LOAD_CATEGORY","LOAD_VIEW"]},
 		"args"
 	],
+	"caption":"Main",
 	"data":[
 		[0, "biology", 0, "RctBiologyMenu"],
 		[0, "formulas", 0, "RctFormulaMenu"]

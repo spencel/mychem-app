@@ -5,6 +5,7 @@
 		{"action":["LOAD_CATEGORY","LOAD_VIEW"]},
 		"args"
 	],
+	"caption":"biology",
 	"data":[
 		[0, "amino acid table", 1, "RctAminoAcidTable"],
 		[0, "cell component list", 1, "RctCellComponents"],

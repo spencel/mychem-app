@@ -20,6 +20,7 @@ class RctNavMenu extends React.Component {
 			currentLevelCaption: "", // takes category caption, root is blank
 			structure: props.rctStructure,
 		}
+		this.path = ["RctNavMenu"];
 	}
 	componentWillReceiveProps( newProps ) {
 		//console.log( "RctNavMenu.componentWillReceiveProps()" );
@@ -55,46 +56,87 @@ class RctNavMenu extends React.Component {
 		}
 	}
 	loadCategory( args ){
-		//console.log( "RctNavMenu.loadCategory()" );
-		//console.log("this.state.level: " + this.state.level);
-		//console.log("RctFormulaMenuJson:");
-		//console.log(RctFormulaMenuJson);
-		//console.log("this.state.subMenues[ args.args ]: " + this.state.subMenues[ args.args ]);
-		//console.log("args.caption: " + args.caption);
+		console.log("RctNavMenu.loadCategory()");
+		console.log("args:");
+		console.log(args);
+		var parentMenuName = this.path[ this.path.length - 1 ];
+		console.log("parentMenuName: " + parentMenuName);
+		var parentMenu = this.props.rctSubMenuList[ parentMenuName ];
+		console.log("parentMenu: ");
+		console.log(parentMenu);
 		var nextLevel = this.state.level + 1;
-		//console.log("nextLevel: " + nextLevel);
-		var upOneLevelCaption;
-		if ( nextLevel == 1 ) { // special case for root menu
-			 upOneLevelCaption = "< Main"
-		}
-		//console.log( "args:" );
-		//console.log( args );
-		var currentLevelCaption = args.caption;
-		var subMenuName = args.args
-		//console.log("this.props.rctSubMenuList:");
-		//console.log(this.props.rctSubMenuList);
-		var structure = this.props.rctSubMenuList[ subMenuName ]
+		var upOneLevelCaption = parentMenu.caption;
+		var nextLevelCaption = args.caption;
+		var subMenuName = args.args;
+		this.path.push( subMenuName );
+		var structure = this.props.rctSubMenuList[ subMenuName ];
 		this.setState({ 
 			level: nextLevel,
 			upOneLevelCaption: upOneLevelCaption,
-			currentLevelCaption: currentLevelCaption,
+			currentLevelCaption: nextLevelCaption,
 			structure: structure
 		});
 	}
 	goUpOneLevel( args ){
-		//console.log("RctNavMenu.goUpOneLevel()");
-		//console.log("args:");
-		//console.log(args);
-		var parentMenuName = args.args
-		var structure = this.props.rctSubMenuList[ parentMenuName ]
-		if ( parentMenuName === "RctNavMenuRoot" ) {
+		console.log("RctNavMenu.goUpOneLevel()");
+		console.log("this.path:");
+		console.log(this.path);
+		this.path.pop();
+		console.log("this.path:");
+		console.log(this.path);
+		var nextMenuName = this.path[ this.path.length - 1 ];
+		console.log("nextMenuName: " + nextMenuName);
+		var structure = this.props.rctSubMenuList[ nextMenuName ];
+		if ( nextMenuName === "RctNavMenu" ) {
+			console.log("nextMenuName === \"RctNaveMenu\": true");
 			this.setState({
 				level: 0,
 				upOneLevelCaption: "",
 				currentLevelCaption: "",
 				structure: structure
 			});
+		} else {
+			console.log("nextMenuName === \"RctNaveMenu\": false");
+			var nextParentMenuName = this.path[ this.path.length - 2 ];
+			var nextParentMenuNameCaption = this.props.rctSubMenuList[ nextParentMenuName ].caption;
+			this.setState({
+				level: 0,
+				upOneLevelCaption: nextParentMenuNameCaption,
+				currentLevelCaption: structure.caption,
+				structure: structure
+			});
 		}
+		/*if ( this.path.length > 1 ) {
+			this.path.pop();
+			var nextMenuName = this.path[ this.path.length - 1 ];
+			var nextParentMenu;
+		}
+		console.log("nextMenuName: " + nextMenuName);
+		var structure = this.props.rctSubMenuList[ nextMenuName ]
+		var currentLevelCaption = this.state.upOneLevelCaption;
+		console.log("this.state.level: " + this.state.level);
+		if ( nextMenuName === "RctNavMenu" ) { // special case if parent menu is main menu
+			this.setState({
+				level: 0,
+				upOneLevelCaption: "",
+				currentLevelCaption: "",
+				structure: structure
+			});
+		} else if ( this.state.level === 2 ) {
+			this.setState({
+				level: this.state.level - 1,
+				upOneLevelCaption: "Main",
+				currentLevelCaption: currentLevelCaption,
+				structure: structure
+			});
+		} else {
+			this.setState({
+				level: this.state.level - 1,
+				upOneLevelCaption: parentMenu.caption,
+				currentLevelCaption: currentLevelCaption,
+				structure: structure
+			});
+		}*/
 	}
 	buildMenu() {
 		//console.log( "RctNavMenu.buildMenu()" );
@@ -114,7 +156,7 @@ class RctNavMenu extends React.Component {
 			menu.push( <RctButton
 				key = { this.state.upOneLevelCaption }
 				rctType = { type }
-				rctCaption = { this.state.upOneLevelCaption }
+				rctCaption = { "< " + this.state.upOneLevelCaption }
 				rctAction = { "GO_UP_ONE_LEVEL" }
 				rctArgs = { "RctNavMenuRoot" }
 				rctOnInput = { this.handleInput }

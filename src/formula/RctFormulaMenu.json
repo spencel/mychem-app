@@ -5,11 +5,13 @@
 		{"action":["LOAD_CATEGORY","LOAD_VIEW"]},
 		"args"
 	],
+	"caption":"formulas",
 	"data":[
 		[0, "exponential growth", 1, "RctExponentialGrowth"],
 		[0, "microbe CMFR", 1, "RctMicrobeCmfr"],
 		[0, "Monod equation", 1, "RctMonodEquation"],
 		[0, "Poisson distribution", 1,"RctPoissonDistribution"],
-		[0, "binomial distribution", 1,"RctProbabilityMassFunction"]
+		[0, "binomial distribution", 1,"RctProbabilityMassFunction"],
+		[0, "another subcategory", 0,"RctAnotherSubcategory"]
 	]
 }
