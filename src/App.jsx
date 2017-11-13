@@ -2,7 +2,6 @@
 import React from "react";
 import * as RctUserInterface from "./user-interface/RctUserInterface.jsx";
 import RctFormula from "./formula/RctFormula.jsx";
-import * as RctBiology from "./biology/RctBiology.jsx";
 
 // Styles
 import styles from "./App.css";

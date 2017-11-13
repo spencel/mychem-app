@@ -1,4 +1,25 @@
 {
+	"RctCytogenetics":{
+		"caption":"Cytogenetics",
+		"isHtml":true,
+		"content":[
+			"<h1>Cytogenetics</h1>",
+				"<ul>",
+					"<li>karyotypes</li>",
+					"<ul>",
+						"<li><span class=\"bold\">diploid</span>: having two sets homologous chromosomes.</li>",
+						"<li><span class=\"bold\">haploid</span>: having one set of chromosomes.</li>",
+						"<li><span class=\"bold\">hyperdiploid</span>: having slightly more than the diploid number of chromosomes.</li>",
+						"<li><span class=\"bold\">hypodiploid</span>: having slightly fewer than the diploid number of chromosomes.</li>",
+						"<li><span class=\"bold\">pseudodiploid</span>: syn.: pseudoploid, a diploid karyotype with chromosomal translocations.</li>",
+						"<li><span class=\"bold\">near-diploid</span></li>",
+						"<li><span class=\"bold\">triploid</span>: having or being a chromosome number three times the monoploid number.</li>",
+						"<li><span class=\"bold\">near-triploid</span></li>",
+						"<li><span class=\"bold\">tetraploid</span></li>",
+					"</ul>",
+				"</ul>"
+		]
+	},
 	"RctCentralDogmaOfMolecularBiology":{
 		"caption":"Central dogma of molecular biology",
 		"isHtml":false,

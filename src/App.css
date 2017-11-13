@@ -122,6 +122,7 @@ div.RctNavMenu li:hover {
 div.RctNavMenu div.currentLevelCaption {
   font-size: x-small;
   font-weight: bold;
+  background-color: white;
 }
 
 div.RctViewport {
@@ -144,4 +145,7 @@ span.mjx-chtml.MJXc-display {
   margin-top: 6px;    /* overrides ~15px default */
   margin-bottom: 6px; /* overrides ~15px default */
   display: inline-block;
+}
+span.bold {
+  font-weight: bold;
 }
