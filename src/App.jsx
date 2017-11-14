@@ -13,7 +13,9 @@ import RctBiologyMenuJson from "./biology/RctBiologyMenu.json";
 import RctFormulaJson from "./formula/RctFormula.json";
 import RctFormulaMenuJson from "./formula/RctFormulaMenu.json"
 import RctAnotherSubcategoryJson from "./another-subcategory/RctAnotherSubcategory.json";
-import RctAnotherSubcategoryMenuJson from "./another-subcategory/RctAnotherSubcategoryMenu.json"
+import RctAnotherSubcategoryMenuJson from "./another-subcategory/RctAnotherSubcategoryMenu.json";
+import RctKinematicsJson from "./kinematics/RctKinematics.json";
+import RctKinematicsMenuJson from "./kinematics/RctKinematicsMenu.json";
 
 
 class App extends React.Component {
@@ -54,7 +56,7 @@ class App extends React.Component {
 				RctNavMenu: RctNavMenuJson,
 				RctFormulaMenu: RctFormulaMenuJson,
 				RctBiologyMenu: RctBiologyMenuJson,
-        RctAnotherSubcategory: RctAnotherSubcategoryMenuJson
+        RctKinematicsMenu: RctKinematicsMenuJson
 			}
 		};
 	}

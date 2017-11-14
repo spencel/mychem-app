@@ -1,0 +1,12 @@
+{
+	"meta":[
+		{"type":["RCT_BUTTON"]},
+		"caption",
+		{"action":["LOAD_CATEGORY","LOAD_VIEW"]},
+		"args"
+	],
+	"caption":"kinematics",
+	"data":[
+		[0, "kinematics", 1, "RctKinematics"]
+	]
+}

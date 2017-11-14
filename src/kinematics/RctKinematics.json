@@ -1,0 +1,14 @@
+{
+	"RctKinematicEquations":{
+		"caption":"Kinematic equations",
+		"isHtml":false,
+		"content":[
+			{
+				"title": "Kinematic equations",
+				"content": [
+					"`{v = at + v_0}`"
+				]
+			}
+		]
+	}
+}
