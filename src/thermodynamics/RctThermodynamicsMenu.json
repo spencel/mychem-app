@@ -5,8 +5,8 @@
 		{"action":["LOAD_CATEGORY","LOAD_VIEW"]},
 		"args"
 	],
-	"caption":"kinematics",
+	"caption":"thermodynamics",
 	"data":[
-		[0, "kinematic equations", 1, "RctKinematicEquations"]
+		[0, "ideal gas law", 1, "RctIdealGasLaw"]
 	]
 }

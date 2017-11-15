@@ -20,7 +20,7 @@ class RctHeader extends React.Component {
       		id="toggleMenuButton"
       		className="button"
       		onClick={ this.toggleMenuVisibility }>
-      		<img src={ toggleMenuIcon } width="20" height="20"/>
+      		<img src={ toggleMenuIcon } width="30" height="30"/>
       	</div>
       </div>
     );

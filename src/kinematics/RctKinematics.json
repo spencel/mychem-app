@@ -6,8 +6,19 @@
 			{
 				"title": "Kinematic equations",
 				"content": [
-					"`{v = at + v_0}`"
-				]
+					["{`\\rm{v = v_0 + at}}`"],
+					["{`\\rm{r = r_0 + v_0 t + \\tfrac{1}{2}at^2}}`"],
+					["{`\\rm{r = r_0 + vt - \\tfrac{1}{2}at^2}}`"],
+					["{`\\rm{r = r_0 + \\tfrac{1}{2}(v + v_0)t}}`"],
+					["{`\\rm{v^2 = v^2_0 + 2a(r - r_0)}}`"],
+					["{`\\rm{v = }`}"," velocity after elapsed time t (m/s)"],
+					["{`\\rm{v_0 = }`}"," initial velocity (m/s)"],
+					["{`\\rm{a = }`}"," acceleration ","{`\\rm{(m/s^2)}`}"],
+					["{`\\rm{t = }`}"," elapsed time (s)"],
+					["{`\\rm{r = }`}"," position after elapsed time t (m)"],
+					["{`\\rm{r_0 = }`}"," initial position"]
+				],
+				"subsections": []
 			}
 		]
 	}

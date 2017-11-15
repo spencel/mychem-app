@@ -38,6 +38,8 @@ class RctViewport extends React.Component {
 		//console.log( newProps )
 		this.props = newProps;
 		//this.setState({ rctContents: newProps.rctContents })
+		console.log("this.props: ");
+		console.log(this.props);
 	}
 	// Use shouldComponentUpdate() to let React know if a component’s output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.
 	// shouldComponentUpdate() is invoked before rendering when new props or state are being received. Defaults to true. This method is not called for the initial render or when forceUpdate() is used.

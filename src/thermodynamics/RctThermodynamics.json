@@ -1,0 +1,20 @@
+{
+	"RctIdealGasLaw":{
+		"caption":"Ideal gas law",
+		"isHtml":false,
+		"content":[
+			{
+				"title": "Ideal gas law",
+				"content": [
+					["{`\\rm{PV = nRT}`}"],
+					["{`\\rm{P = }`}"," pressure of the gas (atm)"],
+					["{`\\rm{V = }`}"," volume of the gas (L)"],
+					["{`\\rm{n = }`}"," amount of gas (mol)"],
+					["{`\\rm{R = }`}"," ideal, or universal, gas constant ","{`\\rm{\\left(\\tfrac{L \\cdot atm}{mol \\cdot K}\\right)}`}"],
+					["{`\\rm{T = }`}"," absolute temperature of gas"]
+				],
+				"subsections":[]
+			}
+		]
+	}
+}

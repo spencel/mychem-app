@@ -8,6 +8,8 @@
 	"caption":"Main",
 	"data":[
 		[0, "biology", 0, "RctBiologyMenu"],
-		[0, "formulas", 0, "RctFormulaMenu"]
+		[0, "formulas", 0, "RctFormulaMenu"],
+		[0,"kinematics",0,"RctKinematicsMenu"],
+		[0,"thermodynamics",0,"RctThermodynamicsMenu"]
 	]
 }

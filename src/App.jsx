@@ -16,7 +16,8 @@ import RctAnotherSubcategoryJson from "./another-subcategory/RctAnotherSubcatego
 import RctAnotherSubcategoryMenuJson from "./another-subcategory/RctAnotherSubcategoryMenu.json";
 import RctKinematicsJson from "./kinematics/RctKinematics.json";
 import RctKinematicsMenuJson from "./kinematics/RctKinematicsMenu.json";
-
+import RctThermodynamicsJson from "./thermodynamics/RctThermodynamics.json";
+import RctThermodynamicsMenuJson from "./thermodynamics/RctThermodynamicsMenu.json";
 
 class App extends React.Component {
   static menuStructure = [];
@@ -45,29 +46,40 @@ class App extends React.Component {
         App.viewList[ key ] = <RctFormula rctData={ RctAnotherSubcategoryJson[ key ] }/>;
       }
     }
+    for ( var key in RctKinematicsJson ) {
+      if ( RctKinematicsJson.hasOwnProperty( key ) ) {
+        App.viewList[ key ] = <RctFormula rctData={ RctKinematicsJson[ key ] }/>;
+      }
+    }
+    for ( var key in RctThermodynamicsJson ) {
+      if ( RctThermodynamicsJson.hasOwnProperty( key ) ) {
+        App.viewList[ key ] = <RctFormula rctData={ RctThermodynamicsJson[ key ] }/>;
+      }
+    }
   }
 	constructor() {
 		super();
     App.buildMenuAndViewList();
 		this.state = {
 			menuVisible: false, 
-			viewportContents: App.viewList.RctExponentialGrowth,
+			viewportContents: App.viewList.RctKinematicEquations,
 			subMenuList: {
 				RctNavMenu: RctNavMenuJson,
 				RctFormulaMenu: RctFormulaMenuJson,
 				RctBiologyMenu: RctBiologyMenuJson,
-        RctKinematicsMenu: RctKinematicsMenuJson
+				RctKinematicsMenu: RctKinematicsMenuJson,
+				RctThermodynamicsMenu: RctThermodynamicsMenuJson
 			}
 		};
 	}
 	handleInput = ( args ) => {
-    //console.log("App.handleInput()");
+    console.log("App.handleInput()");
     //console.log("this: ");
     //console.log(this);
     //console.log( rctEvent );
     //console.log( rctEvent.target );
-    //console.log("args:");
-    //console.log(args);
+    console.log("args:");
+    console.log(args);
     switch ( args.action ) {
 			case "TOGGLE_MENU_VISIBILITY":
 				this.setState(( prevState/*, props*/ ) => {
@@ -87,7 +99,10 @@ class App extends React.Component {
 	   }
 	}
   render() {
+  	console.log("App.render()");
     var id = 5;
+    console.log("this.state.viewportContents:");
+    console.log(this.state.viewportContents);
     return (
       <div className="App">
       	<RctUserInterface.RctHeader rctOnInput={ this.handleInput }/>

@@ -44,7 +44,7 @@ div.RctHeader {
   display: block;
   top: 0px;
   width: 100%;
-  height: 20px;
+  height: 30px;
   z-index: 1;
   text-align: right;
   font-size: small;
@@ -69,7 +69,7 @@ div.RctMenu {
   position: absolute;
   display: inline-block;
   right: 0px;
-  top: 20px;
+  top: 30px;
   bottom: 0;
   z-index: 1;
   background-color: hsl(0, 0%, 98%);
@@ -79,7 +79,7 @@ div.RctMenu ul {
   margin:0px; /* overrides default */
   padding: 0px; /* overrides default */
   right: 0;
-  top: 20px;
+  top: 30px;
   bottom:0;
   list-style: none;
   overflow-y: auto; /* scrollbar hides if not needed */
@@ -96,7 +96,7 @@ div.RctNavMenu {
   position: absolute;
   display: inline-block;
   right: 0px;
-  top: 20px;
+  top: 30px;
   bottom: 0;
   z-index: 1;
   background-color: hsl(0, 0%, 98%);
@@ -106,7 +106,7 @@ div.RctNavMenu ul {
   margin:0px; /* overrides default */
   padding: 0px; /* overrides default */
   right: 0;
-  top: 20px;
+  top: 30px;
   bottom:0;
   list-style: none;
   overflow-y: auto; /* scrollbar hides if not needed */
@@ -124,11 +124,13 @@ div.RctNavMenu div.currentLevelCaption {
   font-weight: bold;
   background-color: white;
 }
-
+li.RctButton {
+  height: 30px;
+}
 div.RctViewport {
   position: absolute;
   display: block;
-  top: 20px;
+  top: 30px;
   width: 100%;
   word-wrap: break-word;
   text-align: center;
