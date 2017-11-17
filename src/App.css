@@ -59,7 +59,8 @@ div.RctHeader div.demo {
 div.RctHeader div.button {
   position: static;
   display: inline-block;
-  text-align: center;
+  width:30px;
+  height:30px;
 }
 div.RctHeader div.button:hover {
   cursor: pointer;
