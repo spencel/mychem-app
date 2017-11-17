@@ -18,6 +18,7 @@ import RctKinematicsJson from "./kinematics/RctKinematics.json";
 import RctKinematicsMenuJson from "./kinematics/RctKinematicsMenu.json";
 import RctThermodynamicsJson from "./thermodynamics/RctThermodynamics.json";
 import RctThermodynamicsMenuJson from "./thermodynamics/RctThermodynamicsMenu.json";
+import exampleTableDataJson from "./user-interface/exampleTableData.json";
 
 class App extends React.Component {
   static menuStructure = [];
@@ -62,7 +63,8 @@ class App extends React.Component {
     App.buildMenuAndViewList();
 		this.state = {
 			menuVisible: false, 
-			viewportContents: App.viewList.RctKinematicEquations,
+			//viewportContents: App.viewList.RctKinematicEquations,
+			viewportContents: <RctUserInterface.RctTable rctData={ exampleTableDataJson }/>,
 			subMenuList: {
 				RctNavMenu: RctNavMenuJson,
 				RctFormulaMenu: RctFormulaMenuJson,
