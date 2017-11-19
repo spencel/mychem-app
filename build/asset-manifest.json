@@ -1,7 +1,8 @@
 {
-  "main.css": "static/css/main.1ed83670.css",
-  "main.css.map": "static/css/main.1ed83670.css.map",
-  "main.js": "static/js/main.2edd4c60.js",
-  "main.js.map": "static/js/main.2edd4c60.js.map",
-  "static\\media\\toggleMenuIcon.svg": "static/media/toggleMenuIcon.6661d7ce.svg"
+  "main.css": "static/css/main.cc1fb68f.css",
+  "main.css.map": "static/css/main.cc1fb68f.css.map",
+  "main.js": "static/js/main.3427d378.js",
+  "main.js.map": "static/js/main.3427d378.js.map",
+  "static\\media\\closeIcon.svg": "static/media/closeIcon.d5ee195b.svg",
+  "static\\media\\toggleMenuIcon.svg": "static/media/toggleMenuIcon.8e34eced.svg"
 }
