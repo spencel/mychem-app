@@ -63,7 +63,7 @@ class App extends React.Component {
     App.buildMenuAndViewList();
 		this.state = {
 			menuVisible: false, 
-			viewportContents: App.viewList.RctSuspendedGrowthProcess,
+			viewportContents: App.viewList.RctMicrobeCmfr,
 			//viewportContents: <RctUserInterface.RctTable rctData={ exampleTableDataJson }/>,
       //viewportContents: <div>Hello world!</div>,
 			subMenuList: {

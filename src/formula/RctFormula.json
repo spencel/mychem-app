@@ -165,6 +165,16 @@
 						"subsections": []
 					}
 				]
+			},{
+				"title":"Growth",
+				"content":[
+					["{`\\rm{\\frac{dX}{dt} = \\mu X - b X = \\frac{\\hat{\\mu} S}{K_S + S} - b X}`}"],
+					["{`\\rm{\\frac{ dS }{ dt } = - \\frac{ 1 }{ Y } \\frac{ dX }{ dt }}`}"],
+					["non-exponential growth: ","{`\\rm{\\frac{ dS }{ dt } = - \\frac{ 1 }{ Y }\\left(\\frac{\\hat{\\mu} S X}{K_S + S} - b X\\right)}`}"],
+					["exponential growth: ","{`\\rm{\\frac{ dS }{ dt } = - \\frac{\\hat{\\mu} S X}{Y(K_S + S)}}`}"],
+					["Y = g-biomass/g-substrate ","{`\\rm{\\left(\\frac{g_{VSS}}{g_{COD}}\\right)}`}"]
+				],
+				"subsections":[]
 			}
 		]
 	},
