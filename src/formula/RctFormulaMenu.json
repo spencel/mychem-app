@@ -7,6 +7,7 @@
 	],
 	"caption":"formulas",
 	"data":[
+		[0, "suspended growth",1,"RctSuspendedGrowthProcess"],
 		[0, "exponential growth", 1, "RctExponentialGrowth"],
 		[0, "microbe CMFR", 1, "RctMicrobeCmfr"],
 		[0, "Monod equation", 1, "RctMonodEquation"],

@@ -1,4 +1,79 @@
 {
+	"RctSuspendedGrowthProcess":{
+		"caption":"Suspended growth process",
+		"isHtml":false,
+		"content":[
+			{
+				"title": "Suspended growth process",
+				"content": [
+						["choose a value for X, 2000 to 5000 ","{`\\rm{\\left(mg_{VSS}/L\\right)}`}"]
+					],
+				"subsections": [
+					{
+						"title":"Activated sludge recycle",
+						"content":[
+							["{`\\rm{Q = Q_e + Q_w}`}"],
+							["{`\\rm{V\\frac{dX}{dt} = QX_0 - Q_eX_e - Q_wX_w + r_{net}V}`}"],
+							["{`\\rm{\\frac{dX}{dt}\\to 0, X_0 \\to 0, X_e\\to0}`}"],
+							["{`\\rm{Q_wX_w = r_{net}V}`}"],
+							["{`\\rm{V\\frac{dS}{dt} = QS_0 - Q_eS_e - Q_wS_w - r_{ut}V}`}"],
+							["{`\\rm{\\frac{dS}{dt}\\to0}`}"],
+							["{`\\rm{QS_0 = Q_eS_e + Q_wS_w + r_{ut}V}`}"]
+						],
+						"subsections":[]
+					},{
+						"title":"No activated sludge recycle",
+						"content":[
+							["{`\\rm{\\theta_c = \\theta}`}"],
+							["{`\\rm{V\\frac{dX}{dt} = QX_0 - QX + r_{net}V}`}"],
+							["{`\\rm{\\frac{dX}{dt}\\to 0, X_0 \\to 0}`}"],
+							["{`\\rm{QX = r_{net}V}`}"],
+							["{`\\rm{V\\frac{dS}{dt} = QS_0 - QS - r_{ut}V}`}"],
+							["{`\\rm{\\frac{dS}{dt}\\to 0}`}"],
+							["{`\\rm{QS_0 = QS + r_{ut}V}`}"]
+						],
+						"subsections":[]
+					},{
+						"title":"Shared equations",
+						"content":[
+							["{`\\rm{V=\\theta Q}`}"],
+							["{`\\rm{S = S_e = S_w}`}"],
+							["{`\\rm{S_{min} = \\frac{K_S b}{\\hat{\\mu} - b} =}`}"," minimum (effluent) substrate"],
+							["{`\\rm{S = \\frac{K_S(1+b\\theta_c)}{\\theta_c(\\hat{\\mu}-b)-1}}`}"],
+							["{`\\rm{X = \\frac{\\theta_c}{\\theta}\\left(\\frac{Y(S_0-S)}{1+\\theta_cb}\\right)}`}"],
+							["{`\\rm{\\theta_{min} = \\frac{K_S + S_0}{S_0(\\hat{\\mu} - b) - K_S b} =}`}"," minimum time below which washout occurs"],
+							["{`\\rm{[\\theta_{min}]_{lim} = \\frac{1}{\\hat{\\mu}-b} =}`}"," theoretical ultimate limit"],
+							["{`\\rm{\\theta_c = [\\theta_{min}]_{lim} F_s = \\frac{X}{r_{net}} =}`}"," solids retention time (SRT) = mean cell residence time"],
+							["{`\\rm{r_{net}=\\frac{\\hat{\\mu}X}{K_S+S}-bX}`}"],
+							["{`\\rm{r_{ut}=\\frac{\\hat{\\mu}SX}{Y(K_S+S)} =}`}","utilization rate"],
+							["{`\\rm{r_w = Q_w X_w = \\frac{XV}{\\theta_c} =}`}"," solids wasting rate ","{`\\rm{mg_{VSS}/d}`}"],
+							["{`\\rm{Q_r:Q = \\frac{X}{X_w - X} =}`}"," recycle ratio"],
+							["{`\\rm{F:M = \\frac{QS_0}{VX} = \\frac{S_0}{\\theta X} =}`}"," food to microbe ratio"],
+							["{`\\rm{r_{O_2} = Q(S_0 - S) - 1.42r_w =}`}"," oxygen utilization rate, 1.42 portion of S used for biosynthesis"]
+						],
+						"subsections":[]
+					},{
+						"title":"Definitions",
+						"content":[
+							["{`\\rm{V = }`}"," volume of aeration basin (suspended growth reactor)"],
+							["{`\\rm{F_s =}`}"," safety factor"],
+							["{`\\rm{S_e = }`}"," effluent substrate or COD ","{`\\rm{\\left(\\frac{mg_{COD}}{L}\\right)}`}"],
+							["{`\\rm{\\theta =}`}"," hydraulic retention time (HRT)"],
+							["{`\\rm{X =}`}"," reactor mixed liquor suspended solids (MLSS) ","{`\\rm{\\left(\\frac{mg_{VSS}}{L}\\right)}`}"],
+							["{`\\rm{S_0 = }`}"," influent substrate or COD ","{`\\rm{\\left(\\frac{mg_{COD}}{L}\\right)}`}"],
+							["{`\\rm{K_S = }`}"," half-velocity constant ","{`\\rm{\\left(\\frac{mg_{COD}}{L}\\right)}`}"],
+							["{`\\rm{X = }`}"," mixed liquor suspended solids (MLSS)"],
+							["{`\\rm{Y = }`}"," true microbe yield ","{`\\rm{\\left(\\frac{mg_{VSS}}{mg_{COD}}\\right)}`}"," or ","{`\\rm{\\left(\\frac{mg_{cell}}{mg_{COD}}\\right)}`}"],
+							["{`\\rm{Q_0 = }`}"," influent flow ","{`\\rm{\\left(\\frac{m^3}{h}\\right)}`}"],
+							["{`\\rm{\\hat{\\mu} = }`}"," max microbe growth rate ","{`\\rm{\\left(\\frac{1}{h}\\right)}`}"],
+							["{`\\rm{b = }`}"," microbe decay rate ","{`\\rm{\\left(\\frac{1}{h}\\right)}`}"]
+						],
+						"subsections":[]
+					}
+				]
+			}
+		]
+	},
 	"RctExponentialGrowth":{
 		"caption":"Exponential growth",
 		"isHtml":false,
@@ -104,10 +179,12 @@
 					{
 						"title":"Single substrate or noninteractive limiting substrate",
 						"content": [
-							["{`\\rm{ \\mu = \\frac{ \\mu_{ max } S }{ K_S + S } }`}"],
-							["{`\\rm{ K_S = \\frac{ \\mu }{ \\mu_{ max } } }`}"],
+							["{`\\rm{ \\mu = \\frac{ \\hat{\\mu} S }{ K_S + S } }`}"],
+							["{`\\rm{ K_S = S }\\iff\\rm{\\frac{ \\mu }{ \\hat{\\mu} } = 0.5 }`}"],
+							["{`\\rm{S\\gg K_S\\Rightarrow K_S\\to0 \\therefore\\mu = \\hat{\\mu}}`}"],
+							["{`\\rm{S\\to0\\Rightarrow\\mu=\\frac{\\hat{\\mu}S}{K_S}}`}"],
 							["{`\\rm{ \\mu = min[ \\mu_1, \\mu_2, ... ] = }`}"," [minimum] specific microbe growth rate"],
-							["{`\\rm{ \\mu_{ max } = }`}"," maximum specific microbe growth rate"],
+							["{`\\rm{ \\hat{\\mu} = }`}"," maximum specific microbe growth rate"],
 							["{`\\rm{ S = }`}"," limiting substrate concentration"],
 							["{`\\rm{ K_S = }`}"," half-velocity constant"]
 						],
