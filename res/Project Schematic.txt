@@ -1,0 +1,37 @@
+DreamHost.com
+	backend
+		Apache
+			php
+				IDE: PhpStorm, Sublime Text
+				Framework: Laravel
+			MySql
+				IDE: DataGrip
+		python
+			IDE: PyCharm, Sublime Text
+	frontend
+		html
+			IDE: Sublime Text/Node.js
+		css
+			IDE: Sublime Text/Node.js
+			framework: Bootstrap
+		javascript
+			IDE: Sublime Text/Node.js
+			framework: 
+				React
+					Reselect
+					Router
+				Redux
+			libraries: jQuery
+		svg
+			libraries: D3.js, Snap.svg
+		canvas
+			libraries: three.js
+		Tex/LaTex/MathML
+			libraries: MathJax
+	version control
+		Git/GitHub
+	graphics
+		raster
+			GIMP 2
+		vector
+			Inkscape

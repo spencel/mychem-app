@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f6ac7fb4-8e30-464e-81b8-a74aeb6c5a1c" name="sl-sandbox.dreamhosters.com" url="http://anaconda.dreamhost.com">
+        <fileTransfer host="anaconda.dreamhost.com" port="22" rootFolder="/home/slanke/sl-sandbox.dreamhosters.com/mychem-app" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
